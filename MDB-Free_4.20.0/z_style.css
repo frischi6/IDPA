@@ -1,0 +1,58 @@
+/*
+not used anymore/nicht aktuell
+ */
+html {
+
+}
+
+hr{
+    height: 3px;
+    background-color: black;
+    width: 100%;
+}
+
+h2{
+    font-size: 15px;
+}
+
+/*sm*/
+@media (min-width: 576px) {
+    img{
+        width: 13px;
+    }
+}
+
+/*md*/
+@media (min-width: 768px) {
+    img{
+        width: 21px;
+    }
+}
+
+.col-sm-6{
+    padding: 10px;
+
+
+}
+
+.settingHeader {
+    display: inline;
+    font-size: 16px;
+    position: absolute;
+    right: 20%;
+}
+
+#winkel {
+    font-size: 40px;
+}
+#valWinkel {
+    font-size: 20px;
+}
+
+.form-range {
+    width: 60%;
+    padding: 20px;
+}
+
+
+

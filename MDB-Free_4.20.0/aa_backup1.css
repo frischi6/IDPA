@@ -1,0 +1,98 @@
+/*
+backup 9.3.22 von aa_style.css
+stylesheet zu aa_backup1.html
+funktioniert soweit super
+sollte nicht verändert werden
+ */
+html {
+}
+
+hr{
+    height: 3px;
+    background-color: black;
+    width: 100%;
+}
+
+h2{
+    font-size: 15px;
+}
+
+/*sm*/
+@media (min-width: 576px) {
+    /*damit wetter icons grösser wird wahrsch aber nicht mehr gebraucht
+    img{
+        width: 13px;
+    }*/
+    #settingsSpace{
+        height: 100vh; /* ganze bildschirmhöhe*/
+        background-color: deeppink;
+    }
+
+}
+
+/*md*/
+@media (min-width: 768px) {
+    img{
+        width: 13px;
+    }
+
+}
+
+/*lg*/
+@media (min-width: 992px) {
+    img{
+        width: 27px;
+    }
+}
+
+/*xl*/
+@media (min-width: 1200px) {
+    img{
+        width: 40px;
+    }
+}
+
+
+.col-sm-6{
+    padding: 10px;
+}
+
+.settingHeader {
+    display: inline;
+    font-size: 16px;
+    position: absolute;
+    right: 20%;
+}
+
+#winkel {
+    font-size: 40px;
+}
+#valWinkel {
+    font-size: 20px;
+}
+
+.form-range {
+    width: 60%;
+    padding: 20px;
+}
+
+
+
+/*indexDesk.html*/
+
+/*md*/
+@media (min-width: 768px) {
+
+    .padding{
+        position: fixed;
+        top: 0;
+        right: 0;
+    }
+
+    .container{
+        position: fixed;
+        top: 0;
+        right: 0px;
+        background-color: red;
+    }
+}

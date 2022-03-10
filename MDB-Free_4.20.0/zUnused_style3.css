@@ -1,0 +1,13 @@
+/*
+stylesheet von zUnused_index3.html
+useless
+ */
+
+/*sm*/
+@media (min-width: 576px) {
+    #settingsSpace{
+        height: 100vh;
+        background-color: deeppink;
+
+    }
+}
