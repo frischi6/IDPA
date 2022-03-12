@@ -61,19 +61,19 @@ end template-->
             <div class="row row-cols-1" id="settingsBox"> <!--box with every single setting inside, is placed inside settingsSpace as parent, width of settingsSpace = 100% width settingsBox-->
                 <div class="col-6 col-sm-12" id="wet" style="background-color: blue;"><!-- a single setting, on mobile 50% width of settingsSpace, on desk 100% width of settingsSpace-->
                     <h2>Wetter</h2>
-                    <button type="button" class="btn btn-outline-dark waves-effect px-1 px-sm-1" id="btn1" onclick="selectedButton(this.id)"><img src="img/Wetter/sun.png" width="12"/></button>
-                    <button type="button" class="btn btn-outline-dark waves-effect px-1 px-sm-1" id="btn2" onclick="selectedButton(this.id)"><img src="img/Wetter/cloudySun.png" width="12"/></button>
-                    <button type="button" class="btn btn-outline-dark waves-effect px-1 px-sm-1" id="btn3" onclick="selectedButton(this.id)"><img src="img/Wetter/storm_dark.png" width="12"/></button>
-                    <button type="button" class="btn btn-outline-dark waves-effect px-1 px-sm-1" id="btn4" onclick="selectedButton(this.id)"><img src="img/Wetter/snow.png" width="12"/></button>
+                    <button type="button" class="btn btn-outline-dark waves-effect px-1 px-sm-1" id="btnSun" onclick="selectedButton(this.id)"><img src="img/Wetter/sun.png" width="12"/></button>
+                    <button type="button" class="btn btn-outline-dark waves-effect px-1 px-sm-1" id="btnCloudySun" onclick="selectedButton(this.id)"><img src="img/Wetter/cloudySun.png" width="12"/></button>
+                    <button type="button" class="btn btn-outline-dark waves-effect px-1 px-sm-1" id="btnStorm" onclick="selectedButton(this.id)"><img src="img/Wetter/storm_dark.png" width="12"/></button>
+                    <button type="button" class="btn btn-outline-dark waves-effect px-1 px-sm-1" id="btnSnow" onclick="selectedButton(this.id)"><img src="img/Wetter/snow.png" width="12"/></button>
 
                     <script>
                         function selectedButton(id){
                             console.log("hallo");
                             //set all buttons back to outline-dark
-                            document.getElementById("btn1").className="btn btn-outline-dark waves-effect px-1 px-sm-3 px-md-4";
-                            document.getElementById("btn2").className="btn btn-outline-dark waves-effect px-1 px-sm-3 px-md-4";
-                            document.getElementById("btn3").className="btn btn-outline-dark waves-effect px-1 px-sm-3 px-md-4";
-                            document.getElementById("btn4").className="btn btn-outline-dark waves-effect px-1 px-sm-3 px-md-4";
+                            document.getElementById("btnSun").className="btn btn-outline-dark waves-effect px-1 px-sm-3 px-md-4";
+                            document.getElementById("btnCloudySun").className="btn btn-outline-dark waves-effect px-1 px-sm-3 px-md-4";
+                            document.getElementById("btnStorm").className="btn btn-outline-dark waves-effect px-1 px-sm-3 px-md-4";
+                            document.getElementById("btnSnow").className="btn btn-outline-dark waves-effect px-1 px-sm-3 px-md-4";
 
                             //change selected button to outline-success
                             document.getElementById(id).className="btn btn-outline-success waves-effect px-1 px-sm-3 px-md-4";
@@ -138,17 +138,55 @@ end template-->
             </div>
         </div>
 
-        <div class="col-12 col-sm-9 order-sm-first" id="visualSpace" style="background-color: red"> <!--visualSpace, used to get 3/4 of the window for the box, in this box are all visual elements -->
-            <div class="row row-cols-2" id="visualsBox"> <!--box with pannels, winkel and in mobile also leistung inside, is placed inside visualSpace as parent, width of visualSpace = 100% width visualBox -->
-                <div class="col-12 col-sm-9" id="visPan" style="background-color: greenyellow;"> <!-- place where the pannels and weather is dargestellt-->
-                    pannels
-                    <div class="col p-0"><img src="img/Wetter/solarpanel.png"/></div>
+        <div class="col-12 col-sm-9 order-sm-first" id="visualSpace" style="background-color: red">
+            <!--visualSpace, used to get 3/4 of the window for the box, in this box are all visual elements -->
+            <div class="row row-cols-2" id="visualsBox">
+                <!--box with pannels, winkel and in mobile also leistung inside, is placed inside visualSpace as parent, width of visualSpace = 100% width visualBox -->
+                <div class="col-12 col-sm-9 " id="visPan" style="background-color: #F8F8F8; height: 100vh;">
+                    <!-- place where the pannels and weather is dargestellt-->
+                    <div class="row row-cols-5">
+                        <div class="col p-0"><img src="img/Wetter/sun.png" style="width: 100%"/></div>
+                    </div>
+                    <div class="row row-cols-5 m-4"> <!-- immer 5 cols per row,  m-4 = margin-->
+                        <div class="col p-0"><img src="img/Wetter/solarpanel.png" style="width: 100%"/></div>
+                        <div class="col p-0"><img src="img/Wetter/solarpanel.png" style="width: 100%"/></div>
+                        <div class="col p-0"><img src="img/Wetter/solarpanel.png" style="width: 100%"/></div>
+                        <div class="col p-0"><img src="img/Wetter/solarpanel.png" style="width: 100%"/></div>
+                        <div class="col p-0"><img src="img/Wetter/solarpanel.png" style="width: 100%"/></div>
+                        <div class="col p-0"><img src="img/Wetter/solarpanel.png" style="width: 100%"/></div>
+                        <div class="col p-0"><img src="img/Wetter/solarpanel.png" style="width: 100%"/></div>
+                        <div class="col p-0"><img src="img/Wetter/solarpanel.png" style="width: 100%"/></div>
+                        <div class="col p-0"><img src="img/Wetter/solarpanel.png" style="width: 100%"/></div>
+                        <div class="col p-0"><img src="img/Wetter/solarpanel.png" style="width: 100%"/></div>
+                        <div class="col p-0"><img src="img/Wetter/solarpanel.png" style="width: 100%"/></div>
+                        <div class="col p-0"><img src="img/Wetter/solarpanel.png" style="width: 100%"/></div>
+                        <div class="col p-0"><img src="img/Wetter/solarpanel.png" style="width: 100%"/></div>
+                        <div class="col p-0"><img src="img/Wetter/solarpanel.png" style="width: 100%"/></div>
+                        <div class="col p-0"><img src="img/Wetter/solarpanel.png" style="width: 100%"/></div>
+                        <div class="col p-0"><img src="img/Wetter/solarpanel.png" style="width: 100%"/></div>
+                        <div class="col p-0"><img src="img/Wetter/solarpanel.png" style="width: 100%"/></div>
+                        <div class="col p-0"><img src="img/Wetter/solarpanel.png" style="width: 100%"/></div>
+                        <div class="col p-0"><img src="img/Wetter/solarpanel.png" style="width: 100%"/></div>
+                        <div class="col p-0"><img src="img/Wetter/solarpanel.png" style="width: 100%"/></div>
+                        <div class="col p-0"><img src="img/Wetter/solarpanel.png" style="width: 100%"/></div>
+                        <div class="col p-0"><img src="img/Wetter/solarpanel.png" style="width: 100%"/></div>
+                        <div class="col p-0"><img src="img/Wetter/solarpanel.png" style="width: 100%"/></div>
+                        <div class="col p-0"><img src="img/Wetter/solarpanel.png" style="width: 100%"/></div>
+                        <div class="col p-0"><img src="img/Wetter/solarpanel.png" style="width: 100%"/></div>
+                        <div class="col p-0"><img src="img/Wetter/solarpanel.png" style="width: 100%"/></div>
+                        <div class="col p-0"><img src="img/Wetter/solarpanel.png" style="width: 100%"/></div>
+                        <div class="col p-0"><img src="img/Wetter/solarpanel.png" style="width: 100%"/></div>
+                        <div class="col p-0"><img src="img/Wetter/solarpanel.png" style="width: 100%"/></div>
+                        <div class="col p-0"><img src="img/Wetter/solarpanel.png" style="width: 100%"/></div>
 
+                    </div>
                 </div>
-                <div class="col-5 col-sm-3" id="visWinkel" style="background-color: darkgreen;"> <!-- place where the winkel is visual dargestellt-->
+                <div class="col-5 col-sm-3" id="visWinkel" style="background-color: darkgreen;">
+                    <!-- place where the winkel is visual dargestellt-->
                     winkelV
                 </div>
-                <div class="col-7 d-sm-none order-last" id="leistMob" style="background-color: brown"> <!-- field where leistung angezeigt wird, wird nur in mobile hier angezeigt sonst hidden, gegenstück von leistDesk-->
+                <div class="col-7 d-sm-none order-last" id="leistMob" style="background-color: brown">
+                    <!-- field where leistung angezeigt wird, wird nur in mobile hier angezeigt sonst hidden, gegenstück von leistDesk-->
                     leistung
                 </div>
 

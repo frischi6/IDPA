@@ -2,7 +2,6 @@ document.getElementById("btnBerechnen").addEventListener('click', function () {
     console.log('okay');
     var valueString = document.getElementById("valAnzPannels").value;
     var valueInt = parseInt(valueString);
-
     if (valueInt > 5){
         console.log("> 5");
         console.log(valueInt);
@@ -11,6 +10,9 @@ document.getElementById("btnBerechnen").addEventListener('click', function () {
         console.log(valueInt);
 
     }
+
+
+
     let pannel = document.createElement('div');
     var img = document.createElement("img");
     img.src = "img/Wetter/solarpanel.png";
