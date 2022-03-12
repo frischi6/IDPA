@@ -109,14 +109,14 @@ end template-->
                 </div>
                 <div class="col-6 col-sm-12" id="anz" style="background-color: grey">
                     <h2 style="display: inline">Anz. Solarzellen</h2>
-                    <input type="text" id="valAnzPannels" value="1" size="1">
+                    <input type="text" id="anzPannelsText" value="1" size="1">
 
-                    <div class="range">
-                        <input type="range" class="form-range" min="1" max="100" value="1" onchange="updateValueAnzPannels(this.value)"/>
+                    <div class="range" id="range">
+                        <input type="range" class="form-range" id="valAnzPannels" min="1" max="100" value="1" onchange="updateValueAnzPannels(this.value)"/>
                     </div>
                     <script>
                         function updateValueAnzPannels(val) {
-                            document.getElementById('valAnzPannels').value=val;
+                            document.getElementById('anzPannelsText').value=val;
                         }
                     </script>
 
@@ -142,6 +142,8 @@ end template-->
             <div class="row row-cols-2" id="visualsBox"> <!--box with pannels, winkel and in mobile also leistung inside, is placed inside visualSpace as parent, width of visualSpace = 100% width visualBox -->
                 <div class="col-12 col-sm-9" id="visPan" style="background-color: greenyellow;"> <!-- place where the pannels and weather is dargestellt-->
                     pannels
+                    <div class="col p-0"><img src="img/Wetter/solarpanel.png"/></div>
+
                 </div>
                 <div class="col-5 col-sm-3" id="visWinkel" style="background-color: darkgreen;"> <!-- place where the winkel is visual dargestellt-->
                     winkelV
@@ -163,6 +165,8 @@ end template-->
 
 
 <!-- End your project here-->
+
+<script src="js/pannels.js"></script>
 
 <!-- jQuery -->
 <script type="text/javascript" src="js/jquery.min.js"></script>
