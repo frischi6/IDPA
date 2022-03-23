@@ -1,65 +1,44 @@
-<!-- Sinn dieses Files fragwürdig und unbekannt,
-    wurde wahrscheinlich gebraucht, um row und col besser kennenzulernen
-    useless
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Material Design for Bootstrap</title>
-    <!-- MDB icon -->
-    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-    <!-- Google Fonts Roboto -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- Material Design Bootstrap -->
-    <link rel="stylesheet" href="css/mdb.min.css">
-    <!-- Your custom styles (optional) -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="zUnused_style3.css">
-
-
+    <meta charset="utf-8">
+    <title>Resize Image Proportionally with CSS</title>
+    <style>
+        img{
+            max-width: 100%;
+            max-height: 100%;
+            display: block; /* remove extra space below image */
+        }
+        .box{
+            width: 250px;
+            border: 5px solid black;
+        }
+        .box.large{
+            height: 300px;
+            width: 300px;
+        }
+        .box.small{
+            height: 100px;
+        }
+    </style>
 </head>
 <body>
-<!-- template start
-<div class="container-fluid padding">
-    <div class="row row-cols-1"  id="spaces"> //normalerweise, eine spalte, ab md 2 spalten
-        <div class="col-12 col-sm-3" id="settingsSpace" style="background-color: blue;">settings</div>
-        <div class="col-12 col-sm-9 order-sm-first" id="visualSpace" style="background-color: red">visual</div>
-
-    </div>
+<h2>Image inside Auto-height Div</h2>
+<div class="box">
+    <img src="img/Wetter/solarpanel.png" alt="Cloudy Sky">
 </div>
-template end-->
-<!-- Start your project here-->
-<div class="container-fluid padding">
-    <div class="row row-cols-1"  id="spaces"> <!-- normalerweise, eine spalte, ab md 2 spalten-->
-        <div class="col-12 col-sm-3" id="settingsSpace" style="background-color: blue;">
-            settings
-        </div>
-        <div class="col-12 col-sm-9 order-sm-first" id="visualSpace" style="background-color: red">
-            <img src="img/Wetter/sun.png" style="height: 100%; width: 100%" >
-        </div>
-
-    </div>
+<br>
+<h2>Image inside Portrait Div</h2>
+<div class="box large">
+    <img src="img/Wetter/solarpanel.png" alt="Cloudy Sky">
+    <img src="img/Wetter/solarpanel.png" alt="Cloudy Sky">
+    <img src="img/Wetter/solarpanel.png" alt="Cloudy Sky">
+    <img src="img/Wetter/solarpanel.png" alt="Cloudy Sky">
 </div>
-
-    <!-- End your project here-->
-
-    <!-- jQuery -->
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="js/popper.min.js"></script>
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="js/mdb.min.js"></script>
-    <!-- Your custom scripts (optional) -->
-    <script type="text/javascript"></script>
-
+<br>
+<h2>Image inside Landscape Div</h2>
+<div class="box small">
+    <img src="img/Wetter/solarpanel.png" alt="Cloudy Sky">
+</div>
 </body>
 </html>

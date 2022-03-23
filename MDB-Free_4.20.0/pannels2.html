@@ -64,16 +64,24 @@ end template-->
                 <div class="col-6 col-sm-12" id="wet" style="background-color: blue;">
                     <!-- a single setting, on mobile 50% width of settingsSpace, on desk 100% width of settingsSpace-->
                     <h2>Wetter</h2>
+                    <button type="button" class="btn btn-outline-dark waves-effect px-1 px-sm-1" id="btnSun"
+                            onclick="selectedButton(this.id)"><img src="img/Wetter/sun.png" width="12"/></button>
+                    <button type="button" class="btn btn-outline-dark waves-effect px-1 px-sm-1" id="btnCloudySun"
+                            onclick="selectedButton(this.id)"><img src="img/Wetter/cloudySun.png" width="12"/></button>
+                    <button type="button" class="btn btn-outline-dark waves-effect px-1 px-sm-1" id="btnStorm"
+                            onclick="selectedButton(this.id)"><img src="img/Wetter/storm_dark.png" width="12"/></button>
+                    <button type="button" class="btn btn-outline-dark waves-effect px-1 px-sm-1" id="btnSnow"
+                            onclick="selectedButton(this.id)"><img src="img/Wetter/snow.png" width="12"/></button>
 
                     <script>
                         function selectedButton(id) {
                             console.log("hallo");
                             //set all buttons back to outline-dark
-                            /*document.getElementById("btnSun").className = "btn btn-outline-dark waves-effect px-1 px-sm-3 px-md-4";
+                            document.getElementById("btnSun").className = "btn btn-outline-dark waves-effect px-1 px-sm-3 px-md-4";
                             document.getElementById("btnCloudySun").className = "btn btn-outline-dark waves-effect px-1 px-sm-3 px-md-4";
                             document.getElementById("btnStorm").className = "btn btn-outline-dark waves-effect px-1 px-sm-3 px-md-4";
                             document.getElementById("btnSnow").className = "btn btn-outline-dark waves-effect px-1 px-sm-3 px-md-4";
-*/
+
                             //change selected button to outline-success
                             document.getElementById(id).className = "btn btn-outline-success waves-effect px-1 px-sm-3 px-md-4";
                         }
@@ -82,14 +90,28 @@ end template-->
                 <div class="col-6 col-sm-12" id="wink" style="background-color: green">
                     <!-- a single setting, on mobile 50% width of settingsSpace, on desk 100% width of settingsSpace-->
                     <h2 style="display: inline">Winkel</h2>
-
+                    <p class="settingHeader" id="winkel"><input type="text" id="valWinkel" value="60" size="1">°</p>
+                    <div class="range">
+                        <input type="range" class="form-range" id="customRange1" min="1" max="90" value="60"
+                               onchange="updateValueWinkel(this.value)"/>
+                    </div>
+                    <script>
+                        function updateValueWinkel(val) {
+                            document.getElementById('valWinkel').value = val;
+                        }
+                    </script>
 
 
                 </div>
                 <div class="col-6 col-sm-12" id="tz" style="background-color: yellow;">
                     <!-- a single setting, on mobile 50% width of settingsSpace, on desk 100% width of settingsSpace-->
                     <h2 style="display: inline">Tageszeit</h2>
+                    <p class="settingHeader"><input type="text" id="valTageszeit" value="12" size="1"> Uhr</p>
 
+                    <div class="range">
+                        <input type="range" class="form-range" min="1" max="24" value="12"
+                               onchange="updateValueTageszeit(this.value)"/>
+                    </div>
                     <script>
                         function updateValueTageszeit(val) {
                             document.getElementById('valTageszeit').value = val;
@@ -98,7 +120,7 @@ end template-->
                 </div>
                 <div class="col-6 col-sm-12" id="anz" style="background-color: grey">
                     <h2 style="display: inline">Anz. Solarzellen</h2>
-                    <input type="text" id="anzPannelsText" value="1" size="1" oninput="updateRangeAnzPannels(this.value)">
+                    <input type="text" id="anzPannelsText" value="1" size="1">
 
                     <div class="range" id="range">
                         <input type="range" class="form-range" id="valAnzPannels" min="1" max="100" value="1"
@@ -107,9 +129,6 @@ end template-->
                     <script>
                         function updateValueAnzPannels(val) {
                             document.getElementById('anzPannelsText').value = val;
-                        }
-                        function updateRangeAnzPannels(val) {
-                            document.getElementById('valAnzPannels').value = val;
                         }
                     </script>
 
@@ -126,7 +145,8 @@ end template-->
                 </div>
                 <div class="col-12 d-none d-sm-block" id="leistDesk" style="background-color: brown">
                     <!-- field where leistung angezeigt wird, wird nur in desktop hier angezeigt sonst hidden, gegenstück von leistMob-->
-                    leistung
+                    <p>Leistung</p>
+                    <p style="font-size: 24px">1000 kWh</p>
                 </div>
 
 
@@ -139,20 +159,15 @@ end template-->
                 <!--box with pannels, winkel and in mobile also leistung inside, is placed inside visualSpace as parent, width of visualSpace = 100% width visualBox -->
                 <div class="col-12 col-sm-9 " id="visPan" style="background-color: #F8F8F8;">
                     <!-- place where the pannels and weather is dargestellt-->
-                    <div class="row row-cols-5">
-                        <div class="col p-1"><img src="img/Wetter/cloudDark.png" style="width: 150%"/></div>
-                        <div class="col p-1 "><img src="img/Wetter/cloudDark.png" style="width: 130%"/></div>
-                        <div class="col p-2 "><img src="img/Wetter/cloudDark.png" style="width: 120%"/></div>
-                        <div class="col p-2 pt-3"><img src="img/Wetter/cloudDark.png" style="width: 100%"/></div>
-                        <div class="col p-2 "><img src="img/Wetter/cloudDark.png" style="width: 100%"/></div>
+                    <div class="row row-cols-4">
+                        <div class="col p-0"><img src="img/Wetter/sun2.png" style="width: 100%"/></div>
 
                     </div>
-
-                    <div id="panelRow" style="height: 40vh; border: 2px solid red;"> <!-- immer 5 cols per row,  m-4 = margin-->
+                    <div class="row row-cols-1 m-4" id="panelRow" > <!-- immer 5 cols per row,  m-4 = margin-->
                         <!-- place where the pannels are abgebildet-->
                         <div class="col p-0"><img src="img/Wetter/solarpanel.png" style="width: 100%"/></div>
-                     </div>
-                    <div class="row m-1" style="border: 2px solid blue;">
+                    </div>
+                    <div class="row m-1 mt-5">
 
                         <div class="col-1 p-0"><img src="img/Jahresz/leaf6.png" style="width: 120%"/></div>
                         <div class="col-1 p-0"><img src="img/Jahresz/leaf6.png" style="width: 130%"/></div>
@@ -180,7 +195,8 @@ end template-->
                 </div>
                 <div class="col-7 d-sm-none order-last" id="leistMob" style="background-color: brown">
                     <!-- field where leistung angezeigt wird, wird nur in mobile hier angezeigt sonst hidden, gegenstück von leistDesk-->
-                    leistung
+                    <p>Leistung</p>
+                    <p style="font-size: 44px">1000 kWh</p>
                 </div>
 
             </div>

@@ -6,6 +6,9 @@ to work with
 html {
 }
 
+#panelRow{
+}
+
 hr{
     height: 3px;
     background-color: black;
@@ -16,7 +19,7 @@ h2{
     font-size: 15px;
 }
 
-/*sm*/
+/*sm - handy quer*/
 @media (min-width: 576px) {
     /*damit wetter icons grösser wird wahrsch aber nicht mehr gebraucht
     img{
@@ -25,6 +28,10 @@ h2{
     #settingsSpace{
         height: 100vh; /* ganze bildschirmhöhe*/
         background-color: deeppink;
+    }
+
+    #visPan{
+        height: 100vh;
     }
 
 }
