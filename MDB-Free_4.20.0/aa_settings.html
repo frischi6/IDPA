@@ -61,29 +61,53 @@ end template-->
             <!-- settingSpace, used to get 1/4 of the window for the box, in this box are all single settings-->
             <div class="row row-cols-1" id="settingsBox">
                 <!--box with every single setting inside, is placed inside settingsSpace as parent, width of settingsSpace = 100% width settingsBox-->
-                <div class="col-6 col-sm-12" id="wet" style="background-color: blue;">
+                <div class="col-6 col-sm-12 pb-3" id="wet">
                     <!-- a single setting, on mobile 50% width of settingsSpace, on desk 100% width of settingsSpace-->
                     <h2>Wetter</h2>
-                    <button type="button" class="btn btn-outline-dark waves-effect px-1 px-sm-1" id="btnSun"
-                            onclick="selectedButton(this.id)"><img src="img/Wetter/sun.png" width="12"/></button>
-                    <button type="button" class="btn btn-outline-dark waves-effect px-1 px-sm-1" id="btnCloudySun"
-                            onclick="selectedButton(this.id)"><img src="img/Wetter/cloudySun.png" width="12"/></button>
-                    <button type="button" class="btn btn-outline-dark waves-effect px-1 px-sm-1" id="btnStorm"
-                            onclick="selectedButton(this.id)"><img src="img/Wetter/storm_dark.png" width="12"/></button>
-                    <button type="button" class="btn btn-outline-dark waves-effect px-1 px-sm-1" id="btnSnow"
-                            onclick="selectedButton(this.id)"><img src="img/Wetter/snow.png" width="12"/></button>
+                    <button type="button" class="btn btn-outline-dark waves-effect px-1 px-sm-1 p-0 btnWeather" id="btnSun"
+                            onclick="selectedButton(this.id)"><img src="img/Wetter/sun.png " width="100%"/></button>
+                    <button type="button" class="btn btn-outline-dark waves-effect px-1 px-sm-1 p-0 btnWeather" id="btnCloudySun"
+                            onclick="selectedButton(this.id)"><img src="img/Wetter/cloudySun.png" width="100%"/></button>
+                    <button type="button" class="btn btn-outline-dark waves-effect px-1 px-sm-1 p-0 btnWeather" id="btnStorm"
+                            onclick="selectedButton(this.id)"><img src="img/Wetter/storm_dark.png" width="100%"/></button>
+                    <button type="button" class="btn btn-outline-dark waves-effect px-1 px-sm-1 p-0 btnWeather" id="btnSnow"
+                            onclick="selectedButton(this.id)"><img src="img/Wetter/snow.png" width="100%"/></button>
 
                     <script>
                         function selectedButton(id) {
-                            console.log("hallo");
                             //set all buttons back to outline-dark
-                            document.getElementById("btnSun").className = "btn btn-outline-dark waves-effect px-1 px-sm-3 px-md-4";
-                            document.getElementById("btnCloudySun").className = "btn btn-outline-dark waves-effect px-1 px-sm-3 px-md-4";
-                            document.getElementById("btnStorm").className = "btn btn-outline-dark waves-effect px-1 px-sm-3 px-md-4";
-                            document.getElementById("btnSnow").className = "btn btn-outline-dark waves-effect px-1 px-sm-3 px-md-4";
+                            document.getElementById("btnSun").className = "btn btn-outline-dark waves-effect px-1 px-sm-1 p-0 btnWeather";
+                            document.getElementById("btnCloudySun").className = "btn btn-outline-dark waves-effect px-1 px-sm-1 p-0 btnWeather";
+                            document.getElementById("btnStorm").className = "btn btn-outline-dark waves-effect px-1 px-sm-1 p-0 btnWeather";
+                            document.getElementById("btnSnow").className = "btn btn-outline-dark waves-effect px-1 px-sm-1 p-0 btnWeather";
 
                             //change selected button to outline-success
-                            document.getElementById(id).className = "btn btn-outline-success waves-effect px-1 px-sm-3 px-md-4";
+                            document.getElementById(id).className = "btn btn-outline-success waves-effect px-1 px-sm-1 p-0 btnWeather";
+                        }
+                    </script>
+                </div>
+                <div class="col-6 col-sm-12" id="jahresz">
+                    <!-- a single setting, on mobile 50% width of settingsSpace, on desk 100% width of settingsSpace-->
+                    <h2>Jahreszeit</h2>
+                    <button type="button" class="btn btn-outline-dark waves-effect px-1 px-sm-1 p-0 btnSeason" id="btnSpring"
+                            onclick="selectedButton(this.id)"><img src="img/Wetter/sun.png " width="100%"/></button>
+                    <button type="button" class="btn btn-outline-dark waves-effect px-1 px-sm-1 p-0 btnSeason" id="btnSummer"
+                            onclick="selectedButton(this.id)"><img src="img/Wetter/cloudySun.png" width="100%"/></button>
+                    <button type="button" class="btn btn-outline-dark waves-effect px-1 px-sm-1 p-0 btnSeason" id="btnHarvest"
+                            onclick="selectedButton(this.id)"><img src="img/Wetter/storm_dark.png" width="100%"/></button>
+                    <button type="button" class="btn btn-outline-dark waves-effect px-1 px-sm-1 p-0 btnSeason" id="btnWinter"
+                            onclick="selectedButton(this.id)"><img src="img/Wetter/snow.png" width="100%"/></button>
+
+                    <script>
+                        function selectedButton(id) {
+                            //set all buttons back to outline-dark
+                            document.getElementById("btnSpring").className = "btn btn-outline-dark waves-effect px-1 px-sm-1 p-0 btnSeason";
+                            document.getElementById("btnSummer").className = "btn btn-outline-dark waves-effect px-1 px-sm-1 p-0 btnSeason";
+                            document.getElementById("btnHarvest").className = "btn btn-outline-dark waves-effect px-1 px-sm-1 p-0 btnSeason";
+                            document.getElementById("btnWinter").className = "btn btn-outline-dark waves-effect px-1 px-sm-1 p-0 btnSeason";
+
+                            //change selected button to outline-success
+                            document.getElementById(id).className = "btn btn-outline-success waves-effect px-1 px-sm-1 p-0 btnSeason";
                         }
                     </script>
                 </div>
@@ -103,21 +127,7 @@ end template-->
 
 
                 </div>
-                <div class="col-6 col-sm-12" id="tz" style="background-color: yellow;">
-                    <!-- a single setting, on mobile 50% width of settingsSpace, on desk 100% width of settingsSpace-->
-                    <h2 style="display: inline">Tageszeit</h2>
-                    <p class="settingHeader"><input type="text" id="valTageszeit" value="12" size="1"> Uhr</p>
 
-                    <div class="range">
-                        <input type="range" class="form-range" min="1" max="24" value="12"
-                               onchange="updateValueTageszeit(this.value)"/>
-                    </div>
-                    <script>
-                        function updateValueTageszeit(val) {
-                            document.getElementById('valTageszeit').value = val;
-                        }
-                    </script>
-                </div>
                 <div class="col-6 col-sm-12" id="anz" style="background-color: grey">
                     <h2 style="display: inline">Anz. Solarzellen</h2>
                     <input type="text" id="anzPannelsText" value="1" size="1">
@@ -137,16 +147,17 @@ end template-->
                     <!--textfield where total of pannels in m2 will be printed, on mobile and on desktop 50% width of settingsSpace, shares the 100%/one line with berechnenButton -->
                     xx m2
                 </div>
-                <div class="col-6" id="btn" style="background-color: orchid">
+                <div class="col-6 p-0" id="btnBerechnenBox">
                     <!--berechnenButton, on mobile and on desktop 50% width of settingsSpae, shares the 100%/one line with m2-textfield -->
-                    <button type="button" class="btn btn-outline-dark waves-effect px-1" id="btnBerechnen"
-                            onclick="selectedButton(this.id)">res
+                    <button type="button" class="btn btn-outline-dark waves-effect float-right m-1 mr-2 p-1" id="btnBerechnen"
+                            onclick="selectedButton(this.id)"><p style="margin:0px;">berechnen</p>
                     </button>
                 </div>
                 <div class="col-12 d-none d-sm-block" id="leistDesk" style="background-color: brown">
                     <!-- field where leistung angezeigt wird, wird nur in desktop hier angezeigt sonst hidden, gegenstück von leistMob-->
                     leistung
                 </div>
+<hr class="d-sm-none">
 
 
             </div>

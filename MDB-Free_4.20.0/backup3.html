@@ -1,4 +1,4 @@
-<!-- backup version
+<!-- newest backup, 24.03.22
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -151,53 +151,39 @@ end template-->
             </div>
         </div>
 
-        <div class="col-12 col-sm-9 order-sm-first" id="visualSpace" style="background-color: red">
+        <div class="col-12 col-sm-9 order-sm-first" id="visualSpace" style="">
             <!--visualSpace, used to get 3/4 of the window for the box, in this box are all visual elements -->
             <div class="row row-cols-2" id="visualsBox">
                 <!--box with pannels, winkel and in mobile also leistung inside, is placed inside visualSpace as parent, width of visualSpace = 100% width visualBox -->
-                <div class="col-12 col-sm-9 " id="visPan" style="background-color: #F8F8F8; height: 100vh;">
+                <div class="col-12 col-sm-9 " id="visPan"
+                     style="background-color: #F8F8F8; "> <!--550px height f. 100 panels-->
                     <!-- place where the pannels and weather is dargestellt-->
                     <div class="row row-cols-4">
-                        <div class="col p-0"><img src="img/Wetter/sun2.png" style="width: 120%"/></div>
-
+                        <div class="col p-0 align-items-start"><img src="img/Wetter/sun2.png" style="width: 100%"/>
+                        </div>
                     </div>
-
-
-
-
-
-
-
-
-
-
-                    <div class="row row-cols-1 m-4" id="panelRow"> <!-- immer 5 cols per row,  m-4 = margin-->
-                        <!-- place where the pannels are abgebildet-->
-                        <div class="col p-0"><img src="img/Wetter/solarpanel.png" style="width: 100%"/></div>
+                    <div id="panelAndSeason"> <!-- includes panelRow and seasonRow, used that one panel is more on the bottom than on the top straight after the sun-->
+                        <div class="row row-cols-1 m-1 mb-5" id="panelRow"> <!-- immer 5 cols per row,  m-4 = margin-->
+                            <!-- place where the pannels are abgebildet-->
+                            <div class="col p-0 align-items-center"><img src="img/Wetter/solarpanel.png"
+                                                                         style="width: 100%;"/></div>
+                        </div>
+                        <div class="row m-1 mt-2 " id="seasonRow">
+                            <!--perfekt für hochformat-->
+                            <div class="col-1 p-0"><img src="img/Jahresz/leaf6.png" class="seasonImg" id="firstSeasonImg" style="width: 120%"/></div>
+                            <div class="col-1 p-0"><img src="img/Jahresz/leaf6.png"  class="seasonImg"id="secondSeasonImg" style="width: 130%" /></div>
+                            <div class="col-2 p-0"><img src="img/Jahresz/leaf2.png" class="seasonImg" id="thirdSeasonImg" style="width: 110%"/></div>
+                            <div class="col-2 p-0"><img src="img/Jahresz/leaf2.png" class="seasonImg" id="fourthSeasonImg" style="width: 120%"/></div>
+                            <div class="col-1 p-0"><img src="img/Jahresz/leaf2.png" class="seasonImg" id="fifthSeasonImg" style="width: 120%"/></div>
+                            <div class="col-1 p-0"><img src="img/Jahresz/leaf4.png" class="seasonImg" id="sixthSeasonImg" style="width: 130%"/></div>
+                            <div class="col-2 p-0"><img src="img/Jahresz/leaf6.png" class="seasonImg" id="seventhSeasonImg" style="width: 120%"/></div>
+                            <div class="col-1 p-0"><img src="img/Jahresz/leaf2.png" class="seasonImg" id="eigthSeasonImg" style="width: 120%"/></div>
+                            <div class="col-1 p-0"><img src="img/Jahresz/leaf2.png" class="seasonImg" id="lastSeasonImg" style="width: 120%"/></div>
+                        </div>
                     </div>
-                    <div class="row m-1 mt-5">
-
-                        <div class="col-1 p-0"><img src="img/Jahresz/leaf6.png" style="width: 120%"/></div>
-                        <div class="col-1 p-0"><img src="img/Jahresz/leaf6.png" style="width: 130%"/></div>
-                        <div class="col-2 p-0"><img src="img/Jahresz/leaf2.png" style="width: 110%"/></div>
-                        <div class="col-2 p-0"><img src="img/Jahresz/leaf2.png" style="width: 120%"/></div>
-                        <div class="col-1 p-0"><img src="img/Jahresz/leaf2.png" style="width: 120%"/></div>
-                        <div class="col-1 p-0"><img src="img/Jahresz/leaf4.png" style="width: 130%"/></div>
-                        <div class="col-2 p-0"><img src="img/Jahresz/leaf6.png" style="width: 120%"/></div>
-                        <div class="col-1 p-0"><img src="img/Jahresz/leaf2.png" style="width: 120%"/></div>
-                        <div class="col-1 p-0"><img src="img/Jahresz/leaf2.png" style="width: 120%"/></div>
-
-                    </div>
-
-
-
-
-
-
-
 
                 </div>
-                <div class="col-5 col-sm-3" id="visWinkel" style="background-color: darkgreen;">
+                <div class="col-5 col-sm-3" id="visWinkel" style="height: 15vh">
                     <!-- place where the winkel is visual dargestellt-->
                     winkelV
                 </div>
@@ -209,7 +195,6 @@ end template-->
             </div>
 
         </div>
-
 
     </div>
 </div>

@@ -1,10 +1,26 @@
 /*
-backup 9.3.22 von aa_style.css
-stylesheet zu aa_backup1.html
+backup 24.3.22 von aa_style.css
+stylesheet zu backup3.html
 funktioniert soweit super
 sollte nicht verändert werden
  */
 html {
+}
+
+#panelRow{
+}
+
+#visPan{
+    height: 550px;
+    position: relative; /*damit möglich ist panelAndSeason an bottom zu setzen*/
+}
+
+#panelAndSeason{
+    /*on bottom of visPan*/
+    position: absolute;
+    bottom: 10px;
+    left: 2px;
+    right: 2px;
 }
 
 hr{
@@ -17,7 +33,7 @@ h2{
     font-size: 15px;
 }
 
-/*sm*/
+/*sm - handy quer*/
 @media (min-width: 576px) {
     /*damit wetter icons grösser wird wahrsch aber nicht mehr gebraucht
     img{
@@ -26,6 +42,10 @@ h2{
     #settingsSpace{
         height: 100vh; /* ganze bildschirmhöhe*/
         background-color: deeppink;
+    }
+
+    #visPan{
+        height: 100vh;
     }
 
 }

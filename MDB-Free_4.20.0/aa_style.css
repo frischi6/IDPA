@@ -6,8 +6,32 @@ to work with
 html {
 }
 
-#panelRow{
+h2{
+    font-size: 18px;
+    padding-top: 2px;
+    padding-bottom: 4px;
 }
+
+hr{
+    height: 1px;
+    background-color: black;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.btnWeather{
+    height: 35px;
+    width: 35px;
+    margin: 0px;
+}
+
+.btnSeason{
+    height: 35px;
+    width: 35px;
+    margin: 0px;
+}
+
 
 #visPan{
     height: 550px;
@@ -20,16 +44,6 @@ html {
     bottom: 10px;
     left: 2px;
     right: 2px;
-}
-
-hr{
-    height: 3px;
-    background-color: black;
-    width: 100%;
-}
-
-h2{
-    font-size: 15px;
 }
 
 /*sm - handy quer*/
