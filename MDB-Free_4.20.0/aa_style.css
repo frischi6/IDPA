@@ -9,6 +9,19 @@ html {
 #panelRow{
 }
 
+#visPan{
+    height: 550px;
+    position: relative; /*damit möglich ist panelAndSeason an bottom zu setzen*/
+}
+
+#panelAndSeason{
+    /*on bottom of visPan*/
+    position: absolute;
+    bottom: 10px;
+    left: 2px;
+    right: 2px;
+}
+
 hr{
     height: 3px;
     background-color: black;
