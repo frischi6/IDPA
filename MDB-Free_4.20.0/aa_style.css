@@ -6,39 +6,69 @@ to work with
 html {
 }
 
-h2{
-    font-size: 18px;
-    padding-top: 2px;
+h2 {
+    font-size: 17.5px;
+    font-weight: bold;
+    padding-top: 6px;
     padding-bottom: 4px;
 }
 
-hr{
+.btnWeather {
+    height: 35px;
+    width: 35px;
+    margin: 0px;
+    margin-bottom: 5px;
+}
+
+.btnSeason {
+    height: 35px;
+    width: 35px;
+    margin: 0 0 15px 0;
+}
+
+.settingHeader {
+    display: inline;
+    /*font-size: 66px; glaub ich nicht mehr gebraucht*/
+    position: absolute;
+    right: 3%;
+    top: 4px;
+}
+
+.form-range { /*range slider*/
+    width: 100%;
+    margin-top: 10%;
+    margin-bottom: 0px;
+}
+
+#wink, #anz {
+    position: relative;
+}
+
+#winkel {
+    position: absolute;
+    top: -10px;
+    font-size: 30px; /* grösse °-zeichen*/
+}
+
+#valWinkel, #anzPannelsText { /*wert in box*/
+    font-size: 15px;
+}
+
+hr { /*schwarzer abtrennungsstrich*/
     height: 1px;
     background-color: black;
-    width: 100%;
     padding: 0;
     margin: 0;
 }
 
-.btnWeather{
-    height: 35px;
-    width: 35px;
-    margin: 0px;
-}
-
-.btnSeason{
-    height: 35px;
-    width: 35px;
-    margin: 0px;
-}
 
 
-#visPan{
+#visPan {
     height: 550px;
     position: relative; /*damit möglich ist panelAndSeason an bottom zu setzen*/
 }
 
-#panelAndSeason{
+#panelAndSeason {
     /*on bottom of visPan*/
     position: absolute;
     bottom: 10px;
@@ -52,12 +82,12 @@ hr{
     img{
         width: 13px;
     }*/
-    #settingsSpace{
+    #settingsSpace {
         height: 100vh; /* ganze bildschirmhöhe*/
         background-color: deeppink;
     }
 
-    #visPan{
+    #visPan {
         height: 100vh;
     }
 
@@ -65,7 +95,7 @@ hr{
 
 /*md*/
 @media (min-width: 768px) {
-    img{
+    img {
         width: 13px;
     }
 
@@ -73,42 +103,22 @@ hr{
 
 /*lg*/
 @media (min-width: 992px) {
-    img{
+    img {
         width: 27px;
     }
 }
 
 /*xl*/
 @media (min-width: 1200px) {
-    img{
+    img {
         width: 40px;
     }
 }
 
 
-.col-sm-6{
+.col-sm-6 {
     padding: 10px;
 }
-
-.settingHeader {
-    display: inline;
-    font-size: 16px;
-    position: absolute;
-    right: 20%;
-}
-
-#winkel {
-    font-size: 40px;
-}
-#valWinkel {
-    font-size: 20px;
-}
-
-.form-range {
-    width: 60%;
-    padding: 20px;
-}
-
 
 
 /*indexDesk.html*/
@@ -116,13 +126,13 @@ hr{
 /*md*/
 @media (min-width: 768px) {
 
-    .padding{
+    .padding {
         position: fixed;
         top: 0;
         right: 0;
     }
 
-    .container{
+    .container {
         position: fixed;
         top: 0;
         right: 0px;

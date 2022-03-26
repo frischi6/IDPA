@@ -168,3 +168,7 @@ function setSizeSeasonImg(value){
     }
 
 }
+
+function setImagesSpring(){
+
+}
