@@ -13,6 +13,10 @@ h2 {
     padding-bottom: 4px;
 }
 
+#wet, #jahresz{
+    padding-bottom: 15px;
+}
+
 .btnWeather {
     height: 35px;
     width: 35px;
@@ -23,7 +27,7 @@ h2 {
 .btnSeason {
     height: 35px;
     width: 35px;
-    margin: 0 0 15px 0;
+    margin: 0 0 10px 0;
 }
 
 .settingHeader {
@@ -75,55 +79,109 @@ hr { /*schwarzer abtrennungsstrich*/
     left: 2px;
     right: 2px;
 }
+#visWinkel, #leistung{
+    height: 15vh;
+}
 
 /*sm - handy quer*/
 @media (min-width: 576px) {
-    /*damit wetter icons grösser wird wahrsch aber nicht mehr gebraucht
+    /*damit wetter icons grösser wird wahrsch aber nicht mehr gebraucht*/
     img{
-        width: 13px;
-    }*/
+        width: 110%;
+        padding-left: 0;
+        margin-left: 0;
+
+    }
     #settingsSpace {
         height: 100vh; /* ganze bildschirmhöhe*/
-        background-color: deeppink;
+    }
+    .btnWeather, .btnSeason{
+        width: 25px;
+        height: 25px;
+    }
+
+    #wet, #jahresz{
+        padding-bottom: 0;
     }
 
     #visPan {
         height: 100vh;
+    }
+    #visWinkel{
+        height: 75vh;
+    }
+    #leistung{
+        height: 25vh;
+    }
+
+    @media (min-width: 600px) {
+        .btnWeather, .btnSeason{
+            width: 27px;
+            height: 27px;
+        }
+    }
+    @media (min-width: 650px) {
+        .btnWeather, .btnSeason{
+            width: 30px;
+            height: 30px;
+        }
+    }
+    @media (min-width: 700px) {
+        .btnWeather, .btnSeason{
+            width: 33px;
+            height: 33px;
+        }
+    }
+    @media (min-width: 730px) {
+        .btnWeather, .btnSeason{
+            width: 35px;
+            height: 35px;
+        }
     }
 
 }
 
 /*md*/
 @media (min-width: 768px) {
-    img {
-        width: 13px;
+    .btnWeather, .btnSeason{
+        width: 37px;
+        height: 37px;
     }
+    @media (min-width: 850px) {
+        .btnWeather, .btnSeason{
+            width: 40px;
+            height: 40px;
+        }
+    }
+
 
 }
 
 /*lg*/
 @media (min-width: 992px) {
-    img {
-        width: 27px;
+    .btnWeather, .btnSeason{
+        width: 42px;
+        height: 42px;
+        margin-right: 5px;
+    }
+    @media (min-width: 1110px) {
+        .btnWeather, .btnSeason{
+            margin-right: 10px;
+        }
     }
 }
 
 /*xl*/
 @media (min-width: 1200px) {
     img {
-        width: 40px;
+        width: 100%;
     }
 }
 
 
-.col-sm-6 {
-    padding: 10px;
-}
-
-
-/*indexDesk.html*/
-
-/*md*/
+/*indexDesk.html
+useless??
+md
 @media (min-width: 768px) {
 
     .padding {
@@ -138,4 +196,4 @@ hr { /*schwarzer abtrennungsstrich*/
         right: 0px;
         background-color: red;
     }
-}
+}*/

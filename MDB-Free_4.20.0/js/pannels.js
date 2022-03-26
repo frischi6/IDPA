@@ -1,25 +1,26 @@
 /*
  * version of 24.03.22 perfect to use
  */
-document.getElementById("btnBerechnen").addEventListener('click', function () {
 
+
+document.getElementById("btnBerechnen").addEventListener('click', function () {
     var value = document.getElementById("valAnzPannels").value;
     /* Erklärung className
-            "row row-cols-1" damit 1 panel pro row, row row-cols-2 damit 2 panels pro row etc.
-            "m-1" margin um panelRow (nicht um einzelnes panel) = 1
-            "mb-5" margin an bottom von 5, damit panels bei viel white space (anz panels <= 84) verteilter in platz und nicht an boden klebt
-            "d-flex flex-wrap-reverse" damit angefangene row oben und nicht unten
-         */
+                "row row-cols-1" damit 1 panel pro row, row row-cols-2 damit 2 panels pro row etc.
+                "m-1" margin um panelRow (nicht um einzelnes panel) = 1
+                "mb-5" margin an bottom von 5, damit panels bei viel white space (anz panels <= 84) verteilter in platz und nicht an boden klebt
+                "d-flex flex-wrap-reverse" damit angefangene row oben und nicht unten
+             */
     if ($(document).width() < 640) { //mobile (hochformat), evtl 640 noch genau anpassen
 
         if (value == 1) {
             deleteAllChildsPanelrow();
             document.getElementById("panelRow").className = "row row-cols-1 m-1 mb-5";
             addPannelsToRow(value);
-        } else if (value >= 2 && value <= 6) {
+        } else if (this.value >= 2 && this.value <= 6) {
             deleteAllChildsPanelrow();
             document.getElementById("panelRow").className = "row row-cols-2 m-1 mb-5 d-flex flex-wrap-reverse";
-            addPannelsToRow(value);
+            addPannelsToRow(this.value);
         } else if (value >= 7 && value <= 15) {
             deleteAllChildsPanelrow();
             document.getElementById("panelRow").className = "row row-cols-3 m-1 mb-5 d-flex flex-wrap-reverse";
@@ -43,14 +44,13 @@ document.getElementById("btnBerechnen").addEventListener('click', function () {
         }
 
 
-
-    }else { //querformat
+    } else { //querformat
         if (value == 1) {
             setSizeSeasonImg(value);
             deleteAllChildsPanelrow();
             document.getElementById("panelRow").className = "row row-cols-1 m-1 mb-0";
             addPannelsToRow(value);
-        } else if (value >= 2 && value <=4) {
+        } else if (value >= 2 && value <= 4) {
             setSizeSeasonImg(value);
             deleteAllChildsPanelrow();
             document.getElementById("panelRow").className = "row row-cols-2 m-1 mb-0 d-flex flex-wrap-reverse";
@@ -143,13 +143,13 @@ function addPannelsToRow7Higher(value, anzCols) {
  * @param value variable die aussagt ob season imgs vergrössert oder verkleinert werden
  */
 //evtl noch hinzufügen, dass überprüft wird ob eine änderung getätigt werden muss wenn nicht skip function
-function setSizeSeasonImg(value){
+function setSizeSeasonImg(value) {
     const sImages = document.querySelectorAll('.seasonImg');
 
-    if (value >= 37 && value <= 48){    //make img smaller
-        document.getElementById("seasonRow").className = "row m-1 mt-0 "
+    if (value >= 37 && value <= 48) {    //make img smaller
+        document.getElementById("seasonRow").className = "row m-1 mt-0 ";
         sImages.forEach(image => {
-            image.style.width ='80%';
+            image.style.width = '80%';
         });
         //individual settings
         document.getElementById("firstSeasonImg").style.width = '90%';
@@ -158,7 +158,7 @@ function setSizeSeasonImg(value){
     } else { // set imgs to normal size
         document.getElementById("seasonRow").className = "row m-1 mt-2";
         sImages.forEach(image => {
-            image.style.width ='120%';
+            image.style.width = '120%';
         });
         //individual settings
         document.getElementById("secondSeasonImg").style.width = '130%';
@@ -169,6 +169,24 @@ function setSizeSeasonImg(value){
 
 }
 
-function setImagesSpring(){
+function setImagesSpring() {
 
+}
+
+/**
+ * fügt herbstbilder bei grafischer darstellung von season ein, ersetzt bilder von anderer jahreszeit
+ * setSizeSeasonImg() setzt anschliessend richtige Grösse der Bilder
+ */
+function setImgaesAutumn() {
+    const sImages = document.querySelectorAll('.seasonImg');
+    sImages.forEach(image => {
+        image.src = "img/Jahresz/leaf2.png";
+    });
+    /*those with src != leaf2*/
+    document.getElementById("firstSeasonImg").src = "img/Jahresz/leaf6.png";
+    document.getElementById("secondSeasonImg").src = "img/Jahresz/leaf6.png";
+    document.getElementById("sixthSeasonImg").src = "img/Jahresz/leaf4.png";
+    document.getElementById("seventhSeasonImg").src = "img/Jahresz/leaf6.png";
+
+    setSizeSeasonImg(this.value);
 }
