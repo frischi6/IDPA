@@ -94,6 +94,7 @@ hr { /*schwarzer abtrennungsstrich*/
     }
     #settingsSpace {
         height: 100vh; /* ganze bildschirmhöhe*/
+        border-left: #707070 solid 1px;
     }
     .btnWeather, .btnSeason{
         width: 25px;
@@ -108,10 +109,13 @@ hr { /*schwarzer abtrennungsstrich*/
         height: 100vh;
     }
     #visWinkel{
-        height: 75vh;
+        height: 70vh;
     }
     #leistung{
-        height: 25vh;
+        height: 30vh;
+    }
+    #winkelLeistung{
+        background-color: #F8F8F8;
     }
 
     @media (min-width: 600px) {
