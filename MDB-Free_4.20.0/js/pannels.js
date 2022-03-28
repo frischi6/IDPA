@@ -11,6 +11,15 @@ document.getElementById("btnBerechnen").addEventListener('click', function () {
     doAllSettings();
 });
 
+
+function doAllSettings() {
+    setValues();
+    setAnzPanels();
+    setCorrectSeason();
+    setCorrectWeather();
+}
+
+
 /**
  * initializes all settingvariables to be able to visualize the expected settings
  */
@@ -21,13 +30,6 @@ function setValues() {
     this.valueAnzPanels = document.getElementById("valAnzPanels").value;
 
 }
-
-function doAllSettings() {
-    setValues();
-    setAnzPanels();
-    setCorrectSeason();
-}
-
 
 function setAnzPanels() {
     var value = document.getElementById("valAnzPanels").value;
@@ -169,13 +171,117 @@ function addPannelsToRow7Higher(value, anzCols) {
             linebreak.className = "w-100";
             document.getElementById("panelRow").appendChild(linebreak);
         }
-        console.log(i);
         var img = document.createElement("img");
         img.src = "img/Wetter/solarpanel.png";
         img.className = "col-1 p-0";
         img.id = "pannelId";
         document.getElementById("panelRow").appendChild(img);
     }
+}
+
+/*
+*
+*
+* Weather
+*
+*
+ */
+function setCorrectWeather() {
+    if (this.valueWeather == 1) {
+        installSonnig();
+    } else if (this.valueWeather == 2) {
+        installLeichtBewoelkt();
+    } else if (this.valueWeather == 3) {
+        installStarkBewoelkt();
+    } else {
+        installSchneiend();
+    }
+}
+
+/*sonnig*/
+function installSonnig(){
+    document.getElementById("visualSpace").style.backgroundColor = '#F8F8F8';
+    document.getElementById("weatherRow").className = "row row-cols-4";
+
+    document.getElementById("firstWeatherCol").className = "col p-0";
+    document.getElementById("secondWeatherCol").className = "d-none";
+    document.getElementById("thirdWeatherCol").className = "d-none";
+    document.getElementById("fourthWeatherCol").className = "d-none";
+    document.getElementById("fifthWeatherCol").className = "d-none";
+
+    document.getElementById("firstWeatherImg").src = "img/Wetter/sun2.png";
+    document.getElementById("firstWeatherImg").style.width = '100%';
+}
+
+
+/*leicht Bewölkt*/
+
+function installLeichtBewoelkt(){
+    document.getElementById("visualSpace").style.backgroundColor = '#F8F8F8';
+    document.getElementById("weatherRow").className = "row row-cols-5";
+
+    document.getElementById("firstWeatherCol").className = "col p-0";
+    document.getElementById("secondWeatherCol").className = "col p-1";
+    document.getElementById("thirdWeatherCol").className = "col p-1 mr-auto";
+    document.getElementById("fourthWeatherCol").className = "col p-2";
+    document.getElementById("fifthWeatherCol").className = "d-none";
+
+    const sImages = document.querySelectorAll('.weatherImg');
+    sImages.forEach(image => {
+        image.src = "img/Wetter/cloudLight.png";
+        image.style.width = '100%';
+    });
+
+    document.getElementById("firstWeatherImg").src = "img/Wetter/sun2.png";
+
+    document.getElementById("secondWeatherImg").style.width = '150%';
+    document.getElementById("thirdWeatherImg").style.width = '130%';
+}
+
+
+/*stark Bewölkt*/
+
+function installStarkBewoelkt(){
+    document.getElementById("visualSpace").style.backgroundColor = '#B8B8B8';
+    document.getElementById("weatherRow").className = "row row-cols-5";
+
+    document.getElementById("firstWeatherCol").className = "col p-1";
+    document.getElementById("secondWeatherCol").className = "col p-1";
+    document.getElementById("thirdWeatherCol").className = "col p-2";
+    document.getElementById("fourthWeatherCol").className = "col p-2 pt-3";
+    document.getElementById("fifthWeatherCol").className = "col p-2";
+
+    const sImages = document.querySelectorAll('.weatherImg');
+    sImages.forEach(image => {
+        image.src = "img/Wetter/cloudDark.png";
+        image.style.width = '100%';
+    });
+
+    document.getElementById("firstWeatherImg").style.width = '150%';
+    document.getElementById("secondWeatherImg").style.width = '130%';
+    document.getElementById("thirdWeatherImg").style.width = '120%';
+}
+
+
+/*schneiend*/
+
+function installSchneiend(){
+    document.getElementById("visualSpace").style.backgroundColor = '#B8B8B8';
+    document.getElementById("weatherRow").className = "row row-cols-3 p-2";
+
+    document.getElementById("firstWeatherCol").className = "col p-0";
+    document.getElementById("secondWeatherCol").className = "col p-0 pt-1";
+    document.getElementById("thirdWeatherCol").className = "col p-0 pt-0";
+    document.getElementById("fourthWeatherCol").className = "d-none";
+    document.getElementById("fifthWeatherCol").className = "d-none";
+
+    const sImages = document.querySelectorAll('.weatherImg');
+    sImages.forEach(image => {
+        image.src = "img/Wetter/snow_dark.png";
+        image.style.width = '100%';
+    });
+
+    document.getElementById("secondWeatherImg").style.width = '80%';
 }
 
 
@@ -201,6 +307,10 @@ function setCorrectSeason() {
 
 /*Autumn*/
 
+/**
+ * Methode, die aufgerufen wird, wenn Frühling als Jahreszeit ausgewählt wurde
+ * Regelt alles (col-&row-Grösse, Bilder, Bildergrösse), damit Frühling korrekt dargestellt
+ */
 function installSpring() {
     document.getElementById("seasonRow").className = "row m-1 mt-2";
 
@@ -227,7 +337,10 @@ function installSpring() {
 
 
 /*Summer*/
-
+/**
+ * Methode, die aufgerufen wird, wenn Sommer als Jahreszeit ausgewählt wurde
+ * Regelt alles (col-&row-Grösse, Bilder, Bildergrösse), damit Sommer korrekt dargestellt
+ */
 function installSummer() {
     document.getElementById("seasonRow").className = "row m-1 mt-2";
 
@@ -258,8 +371,11 @@ function installSummer() {
 /*Autumn*/
 
 /**
- * fügt herbstbilder bei grafischer darstellung von season ein, ersetzt bilder von anderer jahreszeit
- * setSizeSeasonImg() setzt anschliessend richtige Grösse der Bilder
+ *
+ *  Methode, die aufgerufen wird, wenn Herbst als Jahreszeit ausgewählt wurde
+ *  Regelt alles (col-&row-Grösse, Bilder, Bildergrösse), damit Herbst korrekt dargestellt
+ *
+ * setSizeSeasonImg() setzt richtige Grösse v. Bilder, da diese je nach Anz.Panels anders und deshalb komplexerer Code
  */
 function installAutumn() {
     document.getElementById("seasonRow").className = "row m-1 mt-2";
@@ -324,7 +440,10 @@ function setSizeAutumnImg(value) {
 
 
 /* winter */
-
+/**
+ * Methode, die aufgerufen wird, wenn Winter als Jahreszeit ausgewählt wurde
+ * Regelt alles (col-&row-Grösse, Bilder, Bildergrösse), damit Winter korrekt dargestellt
+ */
 function installWinter() {
     document.getElementById("seasonRow").className = "row m-1 mt-2";
 

@@ -114,9 +114,6 @@ hr { /*schwarzer abtrennungsstrich*/
     #leistung{
         height: 30vh;
     }
-    #winkelLeistung{
-        background-color: #F8F8F8;
-    }
 
     @media (min-width: 600px) {
         .btnWeather, .btnSeason{

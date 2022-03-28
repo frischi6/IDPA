@@ -213,20 +213,22 @@
             </div>
         </div>
 
-        <div class="col-12 col-sm-9 order-sm-first" id="visualSpace">
+        <div class="col-12 col-sm-9 order-sm-first" id="visualSpace"  style="background-color: #F8F8F8;">
             <!--visualSpace, used to get 3/4 of the window for the box, in this box are all visual elements -->
             <div class="row row-cols-2" id="visualsBox">
                 <!--box with pannels, winkel and in mobile also leistung inside, is placed inside visualSpace as parent, width of visualSpace = 100% width visualBox -->
-                <div class="col-12 col-sm-9 " id="visPan"
-                     style="background-color: #F8F8F8; "> <!--550px height f. 100 panels-->
+                <div class="col-12 col-sm-9 " id="visPan"> <!--550px height f. 100 panels-->
                     <!-- place where the pannels and weather is dargestellt-->
-                    <div class="row row-cols-4">
-                        <div class="col p-0 align-items-start"><img src="img/Wetter/sun2.png" style="width: 100%"/>
-                        </div>
+                    <div class="row row-cols-3 p-2" id="weatherRow">
+                        <div class="col p-0" id="firstWeatherCol"><img src="img/Wetter/snow_dark.png" class="weatherImg" id="firstWeatherImg" style="width: 100%"/></div  >
+                        <div class="col p-0 pt-1" id="secondWeatherCol"><img src="img/Wetter/snow_dark.png" class="weatherImg" id="secondWeatherImg" style="width: 80%"/></div>
+                        <div class="col p-0 pt-0" id="thirdWeatherCol"><img src="img/Wetter/snow_dark.png" class="weatherImg" id="thirdWeatherImg" style="width: 100%"/></div>
+                        <div class="d-none" id="fourthWeatherCol"><img src="img/Wetter/cloudDark.png" class="weatherImg" id="fourthWeatherImg" style="width: 100%"/></div>
+                        <div class="d-none" id="fifthWeatherCol"><img src="img/Wetter/cloudDark.png" class="weatherImg" id="fifthWeatherImg" style="width: 100%"/></div>
                     </div>
                     <div id="panelAndSeason">
                         <!-- includes panelRow and seasonRow, used that one panel is more on the bottom than on the top straight after the sun-->
-                        <div class="row row-cols-1 m-1 mb-5" id="panelRow"> <!-- immer 5 cols per row,  m-4 = margin-->
+                        <div class="row row-cols-1 m-1 mb-5 mb-sm-0" id="panelRow"> <!-- immer 5 cols per row,  m-4 = margin-->
                             <!-- place where the pannels are abgebildet-->
                             <div class="col p-0 align-items-center"><img src="img/Wetter/solarpanel.png"
                                                                          style="width: 100%;"/></div>
