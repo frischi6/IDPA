@@ -1,118 +1,202 @@
 /*
-backup 24.3.22 von aa_style.css
+backup 28.3.22 von aa_style.css
 stylesheet zu backup3.html
 funktioniert soweit super
 sollte nicht verändert werden
  */
+
 html {
 }
 
-#panelRow{
+h2 {
+    font-size: 17.5px;
+    font-weight: bold;
+    padding-top: 6px;
+    padding-bottom: 4px;
 }
 
-#visPan{
+#wet, #jahresz{
+    padding-bottom: 15px;
+}
+
+.btnWeather {
+    height: 35px;
+    width: 35px;
+    margin: 0px;
+    margin-bottom: 5px;
+}
+
+.btnSeason {
+    height: 35px;
+    width: 35px;
+    margin: 0 0 10px 0;
+}
+
+.settingHeader {
+    display: inline;
+    /*font-size: 66px; glaub ich nicht mehr gebraucht*/
+    position: absolute;
+    right: 3%;
+    top: 4px;
+}
+
+.form-range { /*range slider*/
+    width: 100%;
+    margin-top: 10%;
+    margin-bottom: 0px;
+}
+
+#wink, #anz {
+    position: relative;
+}
+
+#winkel {
+    position: absolute;
+    top: -10px;
+    font-size: 30px; /* grösse °-zeichen*/
+}
+
+#valWinkel, #anzPannelsText { /*wert in box*/
+    font-size: 15px;
+}
+
+hr { /*schwarzer abtrennungsstrich*/
+    height: 1px;
+    background-color: black;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+#visPan {
     height: 550px;
     position: relative; /*damit möglich ist panelAndSeason an bottom zu setzen*/
 }
 
-#panelAndSeason{
+#panelAndSeason {
     /*on bottom of visPan*/
     position: absolute;
     bottom: 10px;
     left: 2px;
     right: 2px;
 }
-
-hr{
-    height: 3px;
-    background-color: black;
-    width: 100%;
-}
-
-h2{
-    font-size: 15px;
+#visWinkel, #leistung{
+    height: 15vh;
 }
 
 /*sm - handy quer*/
 @media (min-width: 576px) {
-    /*damit wetter icons grösser wird wahrsch aber nicht mehr gebraucht
+    /*damit wetter icons grösser wird wahrsch aber nicht mehr gebraucht*/
     img{
-        width: 13px;
-    }*/
-    #settingsSpace{
+        width: 110%;
+        padding-left: 0;
+        margin-left: 0;
+
+    }
+    #settingsSpace {
         height: 100vh; /* ganze bildschirmhöhe*/
-        background-color: deeppink;
+        border-left: #707070 solid 1px;
+    }
+    .btnWeather, .btnSeason{
+        width: 25px;
+        height: 25px;
     }
 
-    #visPan{
+    #wet, #jahresz{
+        padding-bottom: 0;
+    }
+
+    #visPan {
         height: 100vh;
+    }
+    #visWinkel{
+        height: 70vh;
+    }
+    #leistung{
+        height: 30vh;
+    }
+
+    @media (min-width: 600px) {
+        .btnWeather, .btnSeason{
+            width: 27px;
+            height: 27px;
+        }
+    }
+    @media (min-width: 650px) {
+        .btnWeather, .btnSeason{
+            width: 30px;
+            height: 30px;
+        }
+    }
+    @media (min-width: 700px) {
+        .btnWeather, .btnSeason{
+            width: 33px;
+            height: 33px;
+        }
+    }
+    @media (min-width: 730px) {
+        .btnWeather, .btnSeason{
+            width: 35px;
+            height: 35px;
+        }
     }
 
 }
 
 /*md*/
 @media (min-width: 768px) {
-    img{
-        width: 13px;
+    .btnWeather, .btnSeason{
+        width: 37px;
+        height: 37px;
     }
+    @media (min-width: 850px) {
+        .btnWeather, .btnSeason{
+            width: 40px;
+            height: 40px;
+        }
+    }
+
 
 }
 
 /*lg*/
 @media (min-width: 992px) {
-    img{
-        width: 27px;
+    .btnWeather, .btnSeason{
+        width: 42px;
+        height: 42px;
+        margin-right: 5px;
+    }
+    @media (min-width: 1110px) {
+        .btnWeather, .btnSeason{
+            margin-right: 10px;
+        }
     }
 }
 
 /*xl*/
 @media (min-width: 1200px) {
-    img{
-        width: 40px;
+    img {
+        width: 100%;
     }
 }
 
 
-.col-sm-6{
-    padding: 10px;
-}
-
-.settingHeader {
-    display: inline;
-    font-size: 16px;
-    position: absolute;
-    right: 20%;
-}
-
-#winkel {
-    font-size: 40px;
-}
-#valWinkel {
-    font-size: 20px;
-}
-
-.form-range {
-    width: 60%;
-    padding: 20px;
-}
-
-
-
-/*indexDesk.html*/
-
-/*md*/
+/*indexDesk.html
+useless??
+md
 @media (min-width: 768px) {
 
-    .padding{
+    .padding {
         position: fixed;
         top: 0;
         right: 0;
     }
 
-    .container{
+    .container {
         position: fixed;
         top: 0;
         right: 0px;
         background-color: red;
     }
-}
+}*/

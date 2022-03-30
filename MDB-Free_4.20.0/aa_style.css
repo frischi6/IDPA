@@ -3,6 +3,7 @@ best css-version
 stylesheet zu aa_settings.html
 to work with
  */
+
 html {
 }
 
@@ -82,6 +83,26 @@ hr { /*schwarzer abtrennungsstrich*/
 #visWinkel, #leistung{
     height: 15vh;
 }
+#visWinkel{
+    position: relative;
+}
+#lineBase, #lineAngel{
+    height: 1px;
+    border: solid 1px;
+
+    position: absolute;
+    bottom: 10%;
+    left: 20%;
+}
+#lineBase{
+    width: 5vh;
+}
+#lineAngel{
+    width: 7vh;
+    transform: rotate(-90deg);
+    transform-origin:0% 0%;
+}
+
 
 /*sm - handy quer*/
 @media (min-width: 576px) {
@@ -114,6 +135,15 @@ hr { /*schwarzer abtrennungsstrich*/
     #leistung{
         height: 30vh;
     }
+
+
+    #lineBase{
+        width: 20vh;
+    }
+    #lineAngel{
+        width: 25vh;
+    }
+
 
     @media (min-width: 600px) {
         .btnWeather, .btnSeason{
@@ -154,7 +184,6 @@ hr { /*schwarzer abtrennungsstrich*/
             height: 40px;
         }
     }
-
 
 }
 

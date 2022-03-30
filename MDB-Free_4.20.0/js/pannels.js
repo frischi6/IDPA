@@ -17,6 +17,7 @@ function doAllSettings() {
     setAnzPanels();
     setCorrectSeason();
     setCorrectWeather();
+    calculatePower(this.valueWeather, this.valueSeason, this.valueWinkel, this.valueAnzPanels);
 }
 
 
@@ -474,4 +475,23 @@ function installWinter() {
     document.getElementById("tenthSeasonImg").style.width = '130%';
     document.getElementById("eleventhSeasonImg").style.width = '100%';
 
+}
+
+
+
+
+/*
+Datenaustausch mit Backend
+ */
+function calculatePower(wetter, jahreszeit, winkel, anzahl){
+    $.ajax({
+        url: "https://api.cojabou.com/SolarApi/data/solar/power?wetter=" + wetter + "&jahreszeit=" + jahreszeit + "&winkel=" + winkel + "&anzahl=" + anzahl,
+        dataType: "text",
+        type: "GET"
+    })
+    .done(showPower)
+}
+
+function showPower(power){
+    $('#power').text(power);
 }
