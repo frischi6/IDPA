@@ -82,6 +82,9 @@
 
                             //change selected button to outline-success
                             document.getElementById(id).className = "btn btn-grey waves-effect px-1 px-sm-1 p-0 btnWeather";
+
+                            setValues();
+                            setCorrectWeather();
                         }
                     </script>
                 </div>
@@ -89,8 +92,8 @@
                     <!-- a single setting, on mobile 50% width of settingsSpace, on desk 100% width of settingsSpace-->
                     <h2>Jahreszeit</h2>
                     <span title="Frühling">
-                        <button type="button" class="btn btn-outline-dark waves-effect px-1 px-sm-1 p-0 btnSeason"
-                                id="btnSpring" onclick="selectedButtonSeason(this.id)" value="4">
+                        <button type="button" class="btn btn-grey waves-effect px-1 px-sm-1 p-0 btnSeason"
+                                id="btnSpring" onclick="selectedButtonSeason(this.id)" value="1">
                                 <img src="img/Jahresz/spring.png" width="100%"/>
                         </button>
                     </span>
@@ -107,7 +110,7 @@
                         </button>
                     </span>
                     <span title="Winter">
-                        <button type="button" class="btn btn-grey waves-effect px-1 px-sm-1 p-0 btnSeason"
+                        <button type="button" class="btn btn-outline-dark waves-effect px-1 px-sm-1 p-0 btnSeason"
                                 id="btnWinter" onclick="selectedButtonSeason(this.id)">
                                 <img src="img/Jahresz/winter.png" width="100%"/>
                         </button>
@@ -133,6 +136,9 @@
 
                             //change selected button to outline-success
                             document.getElementById(id).className = "btn btn-grey waves-effect px-1 px-sm-1 p-0 btnSeason";
+
+                            setValues();
+                            setCorrectSeason();
                         }
                     </script>
                 </div>
@@ -148,6 +154,8 @@
                     <script>
                         function updateValueWinkel(val) {
                             document.getElementById('valWinkel').value = val;
+                            setValues();
+                            setAngel();
                         }
 
                         function updateRangeWinkel(val) {
@@ -182,6 +190,9 @@
                     <script>
                         function updateValueAnzPanels(val) {
                             document.getElementById('anzPannelsText').value = val;
+                            setValues();
+                            setAnzPanels();
+                            document.getElementById("gesamtflaeche").innerHTML = "Gesamtfläche: "+(1.7*val).toFixed(2)+" m&sup2";
                         }
 
                         function updateRangeAnzPanels(val) {
@@ -193,13 +204,15 @@
                                 val = 1;
                             }
                             document.getElementById('valAnzPanels').value = val;
+                            document.getElementById("gesamtflaeche").innerHTML = "Gesamtfläche: "+(1.7*val).toFixed(2)+" m&sup2";
+
                         }
                     </script>
 
                 </div>
                 <div class="col-8 col-sm-12 p-0" id="m2">
                     <!--textfield where total of pannels in m2 will be printed, on mobile and on desktop 50% width of settingsSpace, shares the 100%/one line with berechnenButton -->
-                    <p class="m-1 p-1 pl-2">Gesamtfläche: 15'500 m&sup2;</p>
+                    <p class="m-1 p-1 pl-2" id="gesamtflaeche">Gesamtfläche: 1.70 m&sup2;</p>
                 </div>
                 <div class="col-4 col-sm-12 p-0" id="btnBerechnenBox">
                     <!--berechnenButton, on mobile and on desktop 50% width of settingsSpae, shares the 100%/one line with m2-textfield -->
@@ -219,12 +232,12 @@
                 <!--box with pannels, winkel and in mobile also leistung inside, is placed inside visualSpace as parent, width of visualSpace = 100% width visualBox -->
                 <div class="col-12 col-sm-9 " id="visPan"> <!--550px height f. 100 panels-->
                     <!-- place where the pannels and weather is dargestellt-->
-                    <div class="row row-cols-3 p-2" id="weatherRow">
-                        <div class="col p-0" id="firstWeatherCol"><img src="img/Wetter/snow_dark.png" class="weatherImg" id="firstWeatherImg" style="width: 100%"/></div  >
-                        <div class="col p-0 pt-1" id="secondWeatherCol"><img src="img/Wetter/snow_dark.png" class="weatherImg" id="secondWeatherImg" style="width: 80%"/></div>
-                        <div class="col p-0 pt-0" id="thirdWeatherCol"><img src="img/Wetter/snow_dark.png" class="weatherImg" id="thirdWeatherImg" style="width: 100%"/></div>
-                        <div class="d-none" id="fourthWeatherCol"><img src="img/Wetter/cloudDark.png" class="weatherImg" id="fourthWeatherImg" style="width: 100%"/></div>
-                        <div class="d-none" id="fifthWeatherCol"><img src="img/Wetter/cloudDark.png" class="weatherImg" id="fifthWeatherImg" style="width: 100%"/></div>
+                    <div class="row row-cols-4" id="weatherRow">
+                        <div class="col p-0" id="firstWeatherCol"><img src="img/Wetter/sun2.png" class="weatherImg" id="firstWeatherImg" style="width: 100%"/></div  >
+                        <div class="d-none" id="secondWeatherCol"><img src="img/Wetter/sun2.png" class="weatherImg" id="secondWeatherImg" style="width: 80%"/></div>
+                        <div class="d-none" id="thirdWeatherCol"><img src="img/Wetter/sun2.png" class="weatherImg" id="thirdWeatherImg" style="width: 100%"/></div>
+                        <div class="d-none" id="fourthWeatherCol"><img src="img/Wetter/sun2.png" class="weatherImg" id="fourthWeatherImg" style="width: 100%"/></div>
+                        <div class="d-none" id="fifthWeatherCol"><img src="img/Wetter/sun2.png" class="weatherImg" id="fifthWeatherImg" style="width: 100%"/></div>
                     </div>
                     <div id="panelAndSeason">
                         <!-- includes panelRow and seasonRow, used that one panel is more on the bottom than on the top straight after the sun-->
@@ -233,32 +246,32 @@
                             <div class="col p-0 align-items-center"><img src="img/Wetter/solarpanel.png"
                                                                          style="width: 100%;"/></div>
                         </div>
-                        <div class="row m-1 mt-2 seasonRow" id="seasonRow">
+                        <div class="row m-1 mt-2" id="seasonRow">
                             <!--perfekt für hochformat-->
-                            <div class="col-1 p-0" id="firstSeasonCol"><img src="img/Jahresz/snowflake1.png" class="seasonImg"
-                                                        id="firstSeasonImg" style="width: 120%"/></div>
-                            <div class="col-2 p-0" id="secondSeasonCol"><img src="img/Jahresz/snowman.png" class="seasonImg"
-                                                        id="secondSeasonImg" style="width: 120%"/></div>
-                            <div class="col-1 p-0" id="thirdSeasonCol"><img src="img/Jahresz/snowflake1.png" class="seasonImg"
-                                                        id="thirdSeasonImg" style="width: 150%"/></div>
-                            <div class="col-1 p-0" id="fourthSeasonCol"><img src="img/Jahresz/snowflake1.png" class="seasonImg"
-                                                        id="fourthSeasonImg" style="width: 90%"/></div>
-                            <div class="col-1 p-0" id="fifthSeasonCol"><img src="img/Jahresz/snowflake1.png" class="seasonImg"
-                                                        id="fifthSeasonImg" style="width: 120%"/></div>
-                            <div class="col-1 p-0" id="sixthSeasonCol"><img src="img/Jahresz/snowflake1.png" class="seasonImg"
-                                                        id="sixthSeasonImg" style="width: 150%"/></div>
-                            <div class="col-1 p-0" id="seventhSeasonCol"><img src="img/Jahresz/snowflake1.png" class="seasonImg"
-                                                        id="seventhSeasonImg" style="width: 120%"/></div>
-                            <div class="col-1 p-0 " id="eighthSeasonCol"><img src="img/Jahresz/snowflake1.png" class="seasonImg"
-                                                        id="eighthSeasonImg" style="width: 110%"/></div>
-                            <div class="col-1 p-0 " id="ninthSeasonCol"><img src="img/Jahresz/snowflake1.png" class="seasonImg"
-                                                                            id="ninthSeasonImg" style="width: 120%"/></div>
-                            <div class="col-1 p-0 " id="tenthSeasonCol"><img src="img/Jahresz/snowflake1.png" class="seasonImg"
-                                                                            id="tenthSeasonImg" style="width: 130%"/></div>
-                            <div class="col-1 p-0 " id="eleventhSeasonCol"><img src="img/Jahresz/snowflake1.png" class="seasonImg"
-                                                                            id="eleventhSeasonImg" style="width: 100%"/></div>
-                            <div class="col-1 p-0 d-none" id="twelfthSeasonCol"><img src="img/Jahresz/snowflake1.png" class="seasonImg"
-                                                                            id="twelfthSeasonImg" style="width: 100%"/></div>
+                            <div class="col-1 p-0" id="firstSeasonCol"><img src="img/Jahresz/flower1.png" class="seasonImg"
+                                                        id="firstSeasonImg" style="width: 100%"/></div>
+                            <div class="col-1 p-0" id="secondSeasonCol"><img src="img/Jahresz/flower1.png" class="seasonImg"
+                                                        id="secondSeasonImg" style="width: 100%"/></div>
+                            <div class="col-1 p-0" id="thirdSeasonCol"><img src="img/Jahresz/flower1.png" class="seasonImg"
+                                                        id="thirdSeasonImg" style="width: 100%"/></div>
+                            <div class="col-1 p-0" id="fourthSeasonCol"><img src="img/Jahresz/flower1.png" class="seasonImg"
+                                                        id="fourthSeasonImg" style="width: 100%"/></div>
+                            <div class="col-1 p-0" id="fifthSeasonCol"><img src="img/Jahresz/flower1.png" class="seasonImg"
+                                                        id="fifthSeasonImg" style="width: 100%"/></div>
+                            <div class="col-1 p-0" id="sixthSeasonCol"><img src="img/Jahresz/flower1.png" class="seasonImg"
+                                                        id="sixthSeasonImg" style="width: 100%"/></div>
+                            <div class="col-1 p-0" id="seventhSeasonCol"><img src="img/Jahresz/flower1.png" class="seasonImg"
+                                                        id="seventhSeasonImg" style="width: 100%"/></div>
+                            <div class="col-1 p-0 " id="eighthSeasonCol"><img src="img/Jahresz/flower1.png" class="seasonImg"
+                                                        id="eighthSeasonImg" style="width: 100%"/></div>
+                            <div class="col-1 p-0 " id="ninthSeasonCol"><img src="img/Jahresz/flower1.png" class="seasonImg"
+                                                        id="ninthSeasonImg" style="width: 100%"/></div>
+                            <div class="col-1 p-0 " id="tenthSeasonCol"><img src="img/Jahresz/flower1.png" class="seasonImg"
+                                                        id="tenthSeasonImg" style="width: 100%"/></div>
+                            <div class="col-1 p-0 " id="eleventhSeasonCol"><img src="img/Jahresz/flower1.png" class="seasonImg"
+                                                        id="eleventhSeasonImg" style="width: 100%"/></div>
+                            <div class="col-1 p-0 " id="twelfthSeasonCol"><img src="img/Jahresz/flower1.png" class="seasonImg"
+                                                        id="twelfthSeasonImg" style="width: 100%"/></div>
                         </div>
                     </div>
 
@@ -268,8 +281,8 @@
                         <div class="col-5 col-sm-12 pl-2" id="visWinkel">
                             <!-- place where the winkel is visual dargestellt-->
                             <h2>Seitenansicht</h2>
-                            <div id="lineAngel" style="background-color: black; border-color: black;"></div>
-                            <div id="lineBase" style="background-color: black; border-color: black;"></div>
+                            <div id="lineAngel" style="transform: rotate(-60deg);"></div>
+                            <div id="lineBase"></div>
 
                         </div>
                         <div class="col-7 col-sm-12 pl-2" id="leistung">

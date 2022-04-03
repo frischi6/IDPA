@@ -6,17 +6,29 @@ var valueSeason;
 var valueWinkel;
 var valueAnzPanels;
 
-window.onresize = setAnzPanels;
 document.getElementById("btnBerechnen").addEventListener('click', function () {
     doAllSettings();
 });
 
 
+/**
+ * bei Veränderung der Bildschirmgrösse werden die Panels angepasst, damit sie sich responsive verhalten und sich
+ *  nicht mit anderen Elementen überschneiden
+ */
+window.onresize = setAnzPanels;
+
+
+/**
+ * "Schaltzentrale", die alle benötigten Methoden aufruft, damit Usereingabe visuell dargestellt wird
+ * Wird aufgerufen nachdem Berechnen-Button gedrückt wurde
+ */
 function doAllSettings() {
     setValues();
-    setAnzPanels();
     setCorrectSeason();
     setCorrectWeather();
+    setAngel();
+    setAnzPanels();
+
     calculatePower(this.valueWeather, this.valueSeason, this.valueWinkel, this.valueAnzPanels);
 }
 
@@ -32,6 +44,10 @@ function setValues() {
 
 }
 
+/**
+ * Stellt die ausgewählte Anzahl Panels dar und
+ * Regelt alles (col-&row-Grösse, Bildergrösse,..), damit panels korrekt dargestellt
+*/
 function setAnzPanels() {
     var value = document.getElementById("valAnzPanels").value;
     /* Erklärung className
@@ -187,6 +203,10 @@ function addPannelsToRow7Higher(value, anzCols) {
 *
 *
  */
+
+/**
+ * entscheidet welches Wetter ausgewählt wurde und ruft entsprechende Methode auf
+ */
 function setCorrectWeather() {
     if (this.valueWeather == 1) {
         installSonnig();
@@ -200,6 +220,10 @@ function setCorrectWeather() {
 }
 
 /*sonnig*/
+/**
+ * Methode, die aufgerufen wird, wenn sonnig als Wetter ausgewählt wurde
+ * Regelt alles (col-&row-Grösse, Bilder, Bildergrösse, Hintergrundfarbe), damit sonnig korrekt dargestellt
+ */
 function installSonnig(){
     document.getElementById("visualSpace").style.backgroundColor = '#F8F8F8';
     document.getElementById("weatherRow").className = "row row-cols-4";
@@ -216,7 +240,10 @@ function installSonnig(){
 
 
 /*leicht Bewölkt*/
-
+/**
+ * Methode, die aufgerufen wird, wenn leicht bewölkt als Wetter ausgewählt wurde
+ * Regelt alles (col-&row-Grösse, Bilder, Bildergrösse, Hintergrundfarbe), damit leicht bewölkt korrekt dargestellt
+ */
 function installLeichtBewoelkt(){
     document.getElementById("visualSpace").style.backgroundColor = '#F8F8F8';
     document.getElementById("weatherRow").className = "row row-cols-5";
@@ -241,7 +268,10 @@ function installLeichtBewoelkt(){
 
 
 /*stark Bewölkt*/
-
+/**
+ * Methode, die aufgerufen wird, wenn stark bewölkt als Wetter ausgewählt wurde
+ * Regelt alles (col-&row-Grösse, Bilder, Bildergrösse, Hintergrundfarbe), damit stark bewölkt korrekt dargestellt
+ */
 function installStarkBewoelkt(){
     document.getElementById("visualSpace").style.backgroundColor = '#B8B8B8';
     document.getElementById("weatherRow").className = "row row-cols-5";
@@ -265,7 +295,10 @@ function installStarkBewoelkt(){
 
 
 /*schneiend*/
-
+/**
+ * Methode, die aufgerufen wird, wenn schneiend als Wetter ausgewählt wurde
+ * Regelt alles (col-&row-Grösse, Bilder, Bildergrösse, Hintergrundfarbe), damit schneiend korrekt dargestellt
+ */
 function installSchneiend(){
     document.getElementById("visualSpace").style.backgroundColor = '#B8B8B8';
     document.getElementById("weatherRow").className = "row row-cols-3 p-2";
@@ -294,6 +327,9 @@ function installSchneiend(){
 *
  */
 
+/**
+ * entscheidet welche Jahreszeit ausgewählt wurde und ruft entsprechende Methode auf
+ */
 function setCorrectSeason() {
     if (this.valueSeason == 1) {
         installSpring();
@@ -301,8 +337,10 @@ function setCorrectSeason() {
         installSummer();
     } else if (this.valueSeason == 3) {
         installAutumn();
-    } else {
+    } else if (this.valueSeason == 4){
         installWinter();
+    } else { //Fehlerfall
+        installSpring();
     }
 }
 
@@ -347,8 +385,8 @@ function installSummer() {
 
 
     document.getElementById("firstSeasonCol").className = "col-2 p-0";
-    document.getElementById("secondSeasonCol").className = "col-5 p-0 pt-3";
-    document.getElementById("thirdSeasonCol").className = "col-5 p-0 pt-3";
+    document.getElementById("secondSeasonCol").className = "col-5 p-0";
+    document.getElementById("thirdSeasonCol").className = "col-5 p-0";
     document.getElementById("fourthSeasonCol").className = "d-none";
     document.getElementById("fifthSeasonCol").className = "d-none";
     document.getElementById("sixthSeasonCol").className = "d-none";
@@ -360,7 +398,7 @@ function installSummer() {
     document.getElementById("twelfthSeasonCol").className = "d-none";
 
     document.getElementById("firstSeasonImg").src = "img/Jahresz/sandburg.png";
-    document.getElementById("firstSeasonImg").style.width = '100%';
+    document.getElementById("firstSeasonImg").style.width = '90%';
     document.getElementById("secondSeasonImg").src = "img/Jahresz/wellen.png";
     document.getElementById("secondSeasonImg").style.width = '100%';
     document.getElementById("thirdSeasonImg").src = "img/Jahresz/wellen.png";
@@ -406,7 +444,7 @@ function installAutumn() {
     document.getElementById("sixthSeasonImg").src = "img/Jahresz/leaf4.png";
     document.getElementById("seventhSeasonImg").src = "img/Jahresz/leaf6.png";
 
-    setSizeAutumnImg(this.value);
+    setSizeAutumnImg(this.valueAnzPanels);
 }
 
 /**
@@ -468,6 +506,7 @@ function installWinter() {
         image.style.width = '120%';
     });
     document.getElementById("secondSeasonImg").src = "img/Jahresz/snowman.png";
+    document.getElementById("secondSeasonImg").style.width = '90%';
     document.getElementById("thirdSeasonImg").style.width = '150%';
     document.getElementById("fourthSeasonImg").style.width = '90%';
     document.getElementById("sixthSeasonImg").style.width = '150%';
@@ -478,10 +517,31 @@ function installWinter() {
 }
 
 
+/*
+*
+*
+* Winkel
+*
+*
+ */
+/**
+ * Setzt den ausgewählten Winkel
+ */
+function setAngel(){
+    document.getElementById("lineAngel").style.transform = "rotate(-"+this.valueWinkel+"deg)";
+}
+
 
 
 /*
 Datenaustausch mit Backend
+ */
+/**
+ * berechnet die erzielte Leistung mit den Usereingaben
+ * @param wetter Usereingabe des Wetters, liefert Wert zwischen 1 und 4
+ * @param jahreszeit Usereingabe des Wetters, liefert Wert zwischen 1 und 4
+ * @param winkel Usereingabe des Winkels, liefert Wert zwischen 1 und 90
+ * @param anzahl Usereingabe der Anzahl Panels, liefert Wert zwischen 1 und 100
  */
 function calculatePower(wetter, jahreszeit, winkel, anzahl){
     $.ajax({
@@ -492,6 +552,10 @@ function calculatePower(wetter, jahreszeit, winkel, anzahl){
     .done(showPower)
 }
 
+/**
+ * stellt ausgerechnete Leistung in html dar
+ * @param power die leistung, die in calculatePower() berechnet wurde
+ */
 function showPower(power){
     $('#power').text(power);
 }

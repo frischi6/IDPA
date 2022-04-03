@@ -2,6 +2,7 @@
 best css-version
 stylesheet zu aa_settings.html
 to work with
+35
  */
 
 html {
@@ -19,15 +20,15 @@ h2 {
 }
 
 .btnWeather {
-    height: 35px;
-    width: 35px;
+    height: 29px;
+    width: 29px;
     margin: 0px;
     margin-bottom: 5px;
 }
 
 .btnSeason {
-    height: 35px;
-    width: 35px;
+    height: 29px;
+    width: 29px;
     margin: 0 0 10px 0;
 }
 
@@ -76,9 +77,13 @@ hr { /*schwarzer abtrennungsstrich*/
 #panelAndSeason {
     /*on bottom of visPan*/
     position: absolute;
-    bottom: 10px;
+    bottom: 0px;
     left: 2px;
     right: 2px;
+}
+
+#winkelLeistung{
+    border-top: 1px grey solid;
 }
 #visWinkel, #leistung{
     height: 15vh;
@@ -87,22 +92,45 @@ hr { /*schwarzer abtrennungsstrich*/
     position: relative;
 }
 #lineBase, #lineAngel{
+    background-color: black;
     height: 1px;
-    border: solid 1px;
+    border: solid black 1px;
 
     position: absolute;
-    bottom: 10%;
-    left: 20%;
+    bottom: 15%;
+    left: 15%;
 }
 #lineBase{
     width: 5vh;
 }
 #lineAngel{
     width: 7vh;
-    transform: rotate(-90deg);
     transform-origin:0% 0%;
 }
 
+/*damit winkel und leistung bei kleiner bildschirmhöhe genügend platz hat weil height ursprünglich mit 15vh angegeben*/
+@media (max-height: 505px) {
+
+    #visWinkel, #leistung{
+        height: 76px;
+    }
+
+    #lineBase{
+        width: 27px;
+    }
+    #lineAngel{
+        width: 38px;
+    }
+}
+
+/*Mobile M (wenn F12 dann responsive)*/
+@media (min-width: 375px) {
+
+    .btnWeather, .btnSeason {
+        height: 35px;
+        width: 35px;
+    }
+}
 
 /*sm - handy quer*/
 @media (min-width: 576px) {
@@ -126,6 +154,10 @@ hr { /*schwarzer abtrennungsstrich*/
         padding-bottom: 0;
     }
 
+    #winkelLeistung{
+        border-top: none;
+        border-left: 1px grey solid;
+    }
     #visPan {
         height: 100vh;
     }
@@ -138,10 +170,10 @@ hr { /*schwarzer abtrennungsstrich*/
 
 
     #lineBase{
-        width: 20vh;
+        width: 70%;
     }
     #lineAngel{
-        width: 25vh;
+        width: 79%;
     }
 
 
