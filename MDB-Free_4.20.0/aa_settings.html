@@ -83,7 +83,7 @@
                             //change selected button to outline-success
                             document.getElementById(id).className = "btn btn-grey waves-effect px-1 px-sm-1 p-0 btnWeather";
 
-                            setValues();
+                            settingsAlwaysUsed();
                             setCorrectWeather();
                         }
                     </script>
@@ -137,7 +137,7 @@
                             //change selected button to outline-success
                             document.getElementById(id).className = "btn btn-grey waves-effect px-1 px-sm-1 p-0 btnSeason";
 
-                            setValues();
+                            settingsAlwaysUsed();
                             setCorrectSeason();
                         }
                     </script>
@@ -154,24 +154,24 @@
                     <script>
                         function updateValueWinkel(val) {
                             document.getElementById('valWinkel').value = val;
-                            setValues();
+                            settingsAlwaysUsed();
                             setAngel();
                         }
 
                         function updateRangeWinkel(val) {
                             if (val > 90) {
                                 document.getElementById('valWinkel').value = 90;
-                                val = 90;
                             }
                             if (val < 1) {
                                 document.getElementById('valWinkel').value = 1;
                             }
                             if (isNaN(val)) {
                                 document.getElementById('valWinkel').value = 60;
-                                val = 60;
                             }
-                            document.getElementById('valueWinkel').value = val;
 
+                            document.getElementById('valueWinkel').value = val;
+                            settingsAlwaysUsed();
+                            setAngel();
                         }
                     </script>
 
@@ -190,9 +190,10 @@
                     <script>
                         function updateValueAnzPanels(val) {
                             document.getElementById('anzPannelsText').value = val;
-                            setValues();
-                            setAnzPanels();
                             document.getElementById("gesamtflaeche").innerHTML = "Gesamtfläche: "+(1.7*val).toFixed(2)+" m&sup2";
+
+                            settingsAlwaysUsed();
+                            setAnzPanels();
                         }
 
                         function updateRangeAnzPanels(val) {
@@ -206,20 +207,17 @@
                             document.getElementById('valAnzPanels').value = val;
                             document.getElementById("gesamtflaeche").innerHTML = "Gesamtfläche: "+(1.7*val).toFixed(2)+" m&sup2";
 
+                            settingsAlwaysUsed();
+                            setAnzPanels();
                         }
                     </script>
 
                 </div>
-                <div class="col-8 col-sm-12 p-0" id="m2">
+                <div class="col-12 col-sm-12 p-0 pt-sm-4 text-center" id="m2">
                     <!--textfield where total of pannels in m2 will be printed, on mobile and on desktop 50% width of settingsSpace, shares the 100%/one line with berechnenButton -->
                     <p class="m-1 p-1 pl-2" id="gesamtflaeche">Gesamtfläche: 1.70 m&sup2;</p>
                 </div>
-                <div class="col-4 col-sm-12 p-0" id="btnBerechnenBox">
-                    <!--berechnenButton, on mobile and on desktop 50% width of settingsSpae, shares the 100%/one line with m2-textfield -->
-                    <button type="button" class="btn btn-outline-dark waves-effect float-right m-1 mr-2 p-1"
-                            id="btnBerechnen" onclick="doAllSettings()"><p style="margin:0px;">BERECHNEN</p>
-                    </button>
-                </div>
+
                 <hr class="d-sm-none">
 
 
@@ -246,7 +244,7 @@
                             <div class="col p-0 align-items-center"><img src="img/Wetter/solarpanel.png"
                                                                          style="width: 100%;"/></div>
                         </div>
-                        <div class="row m-1 mt-2" id="seasonRow">
+                        <div class="row m-1 mt-0" id="seasonRow">
                             <!--perfekt für hochformat-->
                             <div class="col-1 p-0" id="firstSeasonCol"><img src="img/Jahresz/flower1.png" class="seasonImg"
                                                         id="firstSeasonImg" style="width: 100%"/></div>
@@ -285,10 +283,10 @@
                             <div id="lineBase"></div>
 
                         </div>
-                        <div class="col-7 col-sm-12 pl-2" id="leistung">
+                        <div class="col-7 col-sm-12 pl-2 position-relative" id="leistung">
                             <!-- field where leistung angezeigt wird, wird nur in mobile hier angezeigt sonst hidden, gegenstück von leistDesk-->
                             <h2>Leistung</h2>
-                            <p id="power" style="font-size: 25px">15000 kWh</p>
+                            <p id="power" style="font-size: 25px; margin: 0px">15000 kWh</p>
                         </div>
                     </div>
                 </div>

@@ -17,13 +17,22 @@ document.getElementById("btnBerechnen").addEventListener('click', function () {
  */
 window.onresize = setAnzPanels;
 
+/**
+ * Diese Methode wird nach jeder Änderung vom User der Einstellungen aufgerufen
+ * zusätzlich muss im html dann noch die spezifische Methode aufgerufen werden wie zB setAngel() wenn die Winkeleinstellung verändert wurde
+ */
+function settingsAlwaysUsed(){
+    setValues();
+    calculatePower(this.valueWeather, this.valueSeason, this.valueWinkel, this.valueAnzPanels);
+}
 
 /**
  * "Schaltzentrale", die alle benötigten Methoden aufruft, damit Usereingabe visuell dargestellt wird
- * Wird aufgerufen nachdem Berechnen-Button gedrückt wurde
+ * Wird aufgerufen nachdem Berechnen-Button gedrückt wurde -> nicht mehr gebraucht
  */
 function doAllSettings() {
     setValues();
+
     setCorrectSeason();
     setCorrectWeather();
     setAngel();
@@ -144,7 +153,7 @@ function setAnzPanels() {
                 setSizeAutumnImg(value);
             }
             deleteAllChildsPanelrow();
-            document.getElementById("panelRow").className = "row row-cols-6 m-2 mb-4 d-flex flex-wrap-reverse";
+            document.getElementById("panelRow").className = "row row-cols-8 m-2 mb-4 d-flex flex-wrap-reverse";
             addPannelsToRow7Higher(value);
         }
     }
@@ -273,7 +282,7 @@ function installLeichtBewoelkt(){
  * Regelt alles (col-&row-Grösse, Bilder, Bildergrösse, Hintergrundfarbe), damit stark bewölkt korrekt dargestellt
  */
 function installStarkBewoelkt(){
-    document.getElementById("visualSpace").style.backgroundColor = '#B8B8B8';
+    document.getElementById("visPan").style.backgroundColor = '#B8B8B8';
     document.getElementById("weatherRow").className = "row row-cols-5";
 
     document.getElementById("firstWeatherCol").className = "col p-1";
@@ -300,7 +309,7 @@ function installStarkBewoelkt(){
  * Regelt alles (col-&row-Grösse, Bilder, Bildergrösse, Hintergrundfarbe), damit schneiend korrekt dargestellt
  */
 function installSchneiend(){
-    document.getElementById("visualSpace").style.backgroundColor = '#B8B8B8';
+    document.getElementById("visPan").style.backgroundColor = '#B8B8B8';
     document.getElementById("weatherRow").className = "row row-cols-3 p-2";
 
     document.getElementById("firstWeatherCol").className = "col p-0";
@@ -344,14 +353,14 @@ function setCorrectSeason() {
     }
 }
 
-/*Autumn*/
+/*Spring*/
 
 /**
  * Methode, die aufgerufen wird, wenn Frühling als Jahreszeit ausgewählt wurde
  * Regelt alles (col-&row-Grösse, Bilder, Bildergrösse), damit Frühling korrekt dargestellt
  */
 function installSpring() {
-    document.getElementById("seasonRow").className = "row m-1 mt-2";
+    document.getElementById("seasonRow").className = "row m-1 mt-0";
 
 
     document.getElementById("firstSeasonCol").className = "col-1 p-0";
@@ -381,7 +390,7 @@ function installSpring() {
  * Regelt alles (col-&row-Grösse, Bilder, Bildergrösse), damit Sommer korrekt dargestellt
  */
 function installSummer() {
-    document.getElementById("seasonRow").className = "row m-1 mt-2";
+    document.getElementById("seasonRow").className = "row m-1 mt-0";
 
 
     document.getElementById("firstSeasonCol").className = "col-2 p-0";
@@ -417,7 +426,7 @@ function installSummer() {
  * setSizeSeasonImg() setzt richtige Grösse v. Bilder, da diese je nach Anz.Panels anders und deshalb komplexerer Code
  */
 function installAutumn() {
-    document.getElementById("seasonRow").className = "row m-1 mt-2";
+    document.getElementById("seasonRow").className = "row m-1 mt-0";
 
     /*size of cols*/
     document.getElementById("firstSeasonCol").className = "col-1 p-0";
@@ -456,16 +465,16 @@ function setSizeAutumnImg(value) {
     const sImages = document.querySelectorAll('.seasonImg');
 
     if (value >= 37 && value <= 48) {    //make img smaller
-        document.getElementById("seasonRow").className = "row m-1 mt-0 ";
+        document.getElementById("seasonRow").className = "row m-1 mt-0";
         sImages.forEach(image => {
             image.style.width = '80%';
         });
         //individual settings
         document.getElementById("firstSeasonImg").style.width = '90%';
-        document.getElementById("ninthSeasonImg").style.width = '120%';
+        document.getElementById("ninthSeasonImg").style.width = '110%';
 
     } else { // set imgs to normal size
-        document.getElementById("seasonRow").className = "row m-1 mt-2";
+        document.getElementById("seasonRow").className = "row m-1 mt-0";
         sImages.forEach(image => {
             image.style.width = '120%';
         });
@@ -473,6 +482,7 @@ function setSizeAutumnImg(value) {
         document.getElementById("secondSeasonImg").style.width = '130%';
         document.getElementById("thirdSeasonImg").style.width = '110%';
         document.getElementById("sixthSeasonImg").style.width = '130%';
+        document.getElementById("ninthSeasonImg").style.width = '110%';
 
     }
 }
@@ -484,7 +494,7 @@ function setSizeAutumnImg(value) {
  * Regelt alles (col-&row-Grösse, Bilder, Bildergrösse), damit Winter korrekt dargestellt
  */
 function installWinter() {
-    document.getElementById("seasonRow").className = "row m-1 mt-2";
+    document.getElementById("seasonRow").className = "row m-1 mt-0";
 
     /*size of cols*/
     document.getElementById("firstSeasonCol").className = "col-1 p-0";
@@ -557,5 +567,5 @@ function calculatePower(wetter, jahreszeit, winkel, anzahl){
  * @param power die leistung, die in calculatePower() berechnet wurde
  */
 function showPower(power){
-    $('#power').text(power);
+    $('#power').text(power + " kWh");
 }
