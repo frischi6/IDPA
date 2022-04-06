@@ -83,8 +83,9 @@ hr { /*schwarzer abtrennungsstrich*/
 }
 
 #seasonRow{ /*damit sich panel nicht ständig verändern in position wenn jahreszeit geändert wird*/
-    height: 75px;
+    height: 110px;
 }
+
 
 #winkelLeistung{
     border-top: 1px grey solid;
@@ -154,9 +155,14 @@ hr { /*schwarzer abtrennungsstrich*/
         height: 25px;
     }
 
+    #seasonRow{ /*damit sich panel nicht ständig verändern in position wenn jahreszeit geändert wird*/
+        height: 25vh;
+    }
+
     #wet, #jahresz{
         padding-bottom: 0;
     }
+
 
     #winkelLeistung{
         border-top: none;

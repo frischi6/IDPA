@@ -6,10 +6,6 @@ var valueSeason;
 var valueWinkel;
 var valueAnzPanels;
 
-document.getElementById("btnBerechnen").addEventListener('click', function () {
-    doAllSettings();
-});
-
 
 /**
  * bei Veränderung der Bildschirmgrösse werden die Panels angepasst, damit sie sich responsive verhalten und sich
@@ -71,11 +67,13 @@ function setAnzPanels() {
             deleteAllChildsPanelrow();
             document.getElementById("panelRow").className = "row row-cols-1 m-1 mb-5";
             addPannelsToRow(value);
-        } else if (this.value >= 2 && this.value <= 6) {
+        } else if (value >= 2 && value <= 6) {
+            console.log("innn");
             deleteAllChildsPanelrow();
             document.getElementById("panelRow").className = "row row-cols-2 m-1 mb-5 d-flex flex-wrap-reverse";
-            addPannelsToRow(this.value);
+            addPannelsToRow(value);
         } else if (value >= 7 && value <= 15) {
+            console.log("inn2");
             deleteAllChildsPanelrow();
             document.getElementById("panelRow").className = "row row-cols-3 m-1 mb-5 d-flex flex-wrap-reverse";
             addPannelsToRow(value);
@@ -97,61 +95,36 @@ function setAnzPanels() {
             addPannelsToRow(value);
         }
 
-
     } else { //querformat
         if (value == 1) {
-            if (valueSeason == 3) {
-                setSizeAutumnImg(value);
-            }
             deleteAllChildsPanelrow();
             document.getElementById("panelRow").className = "row row-cols-1 m-1 mb-0";
             addPannelsToRow(value);
         } else if (value >= 2 && value <= 4) {
-            if (valueSeason == 3) {
-                setSizeAutumnImg(value);
-            }
             deleteAllChildsPanelrow();
             document.getElementById("panelRow").className = "row row-cols-2 m-1 mb-0 d-flex flex-wrap-reverse";
             addPannelsToRow(value);
         } else if (value >= 5 && value <= 9) {
-            if (valueSeason == 3) {
-                setSizeAutumnImg(value);
-            }
             deleteAllChildsPanelrow();
             document.getElementById("panelRow").className = "row row-cols-3 m-1 mb-3 d-flex flex-wrap-reverse";
             addPannelsToRow(value);
         } else if (value >= 10 && value <= 16) {
-            if (valueSeason == 3) {
-                setSizeAutumnImg(value);
-            }
             deleteAllChildsPanelrow();
             document.getElementById("panelRow").className = "row row-cols-4 m-1 mb-1 d-flex flex-wrap-reverse";
             addPannelsToRow(value);
         } else if (value >= 17 && value <= 25) {
-            if (valueSeason == 3) {
-                setSizeAutumnImg(value);
-            }
             deleteAllChildsPanelrow();
             document.getElementById("panelRow").className = "row row-cols-5 m-1 mb-1 d-flex flex-wrap-reverse";
             addPannelsToRow(value);
         } else if (value >= 26 && value <= 36) {
-            if (valueSeason == 3) {
-                setSizeAutumnImg(value);
-            }
             deleteAllChildsPanelrow();
             document.getElementById("panelRow").className = "row row-cols-6 m-1 mb-1 d-flex flex-wrap-reverse";
             addPannelsToRow(value);
-        } else if (value >= 37 && value <= 48) {    //season img werden in diesem teil kleiner
-            if (valueSeason == 3) {
-                setSizeAutumnImg(value);
-            }
+        } else if (value >= 37 && value <= 42) {    //season img werden in diesem teil kleiner
             deleteAllChildsPanelrow();
             document.getElementById("panelRow").className = "row row-cols-6 m-1 mb-0 d-flex flex-wrap-reverse";
             addPannelsToRow(value);
         } else {  //season img werden wieder grösser
-            if (valueSeason == 3) {
-                setSizeAutumnImg(value);
-            }
             deleteAllChildsPanelrow();
             document.getElementById("panelRow").className = "row row-cols-8 m-2 mb-4 d-flex flex-wrap-reverse";
             addPannelsToRow7Higher(value);
@@ -234,7 +207,7 @@ function setCorrectWeather() {
  * Regelt alles (col-&row-Grösse, Bilder, Bildergrösse, Hintergrundfarbe), damit sonnig korrekt dargestellt
  */
 function installSonnig(){
-    document.getElementById("visualSpace").style.backgroundColor = '#F8F8F8';
+    document.getElementById("visPan").style.backgroundColor = '#F8F8F8';
     document.getElementById("weatherRow").className = "row row-cols-4";
 
     document.getElementById("firstWeatherCol").className = "col p-0";
@@ -254,7 +227,7 @@ function installSonnig(){
  * Regelt alles (col-&row-Grösse, Bilder, Bildergrösse, Hintergrundfarbe), damit leicht bewölkt korrekt dargestellt
  */
 function installLeichtBewoelkt(){
-    document.getElementById("visualSpace").style.backgroundColor = '#F8F8F8';
+    document.getElementById("visPan").style.backgroundColor = '#F8F8F8';
     document.getElementById("weatherRow").className = "row row-cols-5";
 
     document.getElementById("firstWeatherCol").className = "col p-0";
@@ -310,7 +283,7 @@ function installStarkBewoelkt(){
  */
 function installSchneiend(){
     document.getElementById("visPan").style.backgroundColor = '#B8B8B8';
-    document.getElementById("weatherRow").className = "row row-cols-3 p-2";
+    document.getElementById("weatherRow").className = "row row-cols-3 p-2 pt-0";
 
     document.getElementById("firstWeatherCol").className = "col p-0";
     document.getElementById("secondWeatherCol").className = "col p-0 pt-1";
@@ -363,18 +336,18 @@ function installSpring() {
     document.getElementById("seasonRow").className = "row m-1 mt-0";
 
 
-    document.getElementById("firstSeasonCol").className = "col-1 p-0";
-    document.getElementById("secondSeasonCol").className = "col-1 p-0";
-    document.getElementById("thirdSeasonCol").className = "col-1 p-0";
-    document.getElementById("fourthSeasonCol").className = "col-1 p-0";
-    document.getElementById("fifthSeasonCol").className = "col-1 p-0";
-    document.getElementById("sixthSeasonCol").className = "col-1 p-0";
-    document.getElementById("seventhSeasonCol").className = "col-1 p-0";
-    document.getElementById("eighthSeasonCol").className = "col-1 p-0";
-    document.getElementById("ninthSeasonCol").className = "col-1 p-0";
-    document.getElementById("tenthSeasonCol").className = "col-1 p-0";
-    document.getElementById("eleventhSeasonCol").className = "col-1 p-0";
-    document.getElementById("twelfthSeasonCol").className = "col-1 p-0";
+    document.getElementById("firstSeasonCol").className = "col-1 p-0 mt-auto";
+    document.getElementById("secondSeasonCol").className = "col-1 p-0 mt-auto";
+    document.getElementById("thirdSeasonCol").className = "col-1 p-0 mt-auto";
+    document.getElementById("fourthSeasonCol").className = "col-1 p-0 mt-auto";
+    document.getElementById("fifthSeasonCol").className = "col-1 p-0 mt-auto";
+    document.getElementById("sixthSeasonCol").className = "col-1 p-0 mt-auto";
+    document.getElementById("seventhSeasonCol").className = "col-1 p-0 mt-auto";
+    document.getElementById("eighthSeasonCol").className = "col-1 p-0 mt-auto";
+    document.getElementById("ninthSeasonCol").className = "col-1 p-0 mt-auto";
+    document.getElementById("tenthSeasonCol").className = "col-1 p-0 mt-auto";
+    document.getElementById("eleventhSeasonCol").className = "col-1 p-0 mt-auto";
+    document.getElementById("twelfthSeasonCol").className = "col-1 p-0 mt-auto";
 
     const sImages = document.querySelectorAll('.seasonImg');
     sImages.forEach(image => {
@@ -393,9 +366,9 @@ function installSummer() {
     document.getElementById("seasonRow").className = "row m-1 mt-0";
 
 
-    document.getElementById("firstSeasonCol").className = "col-2 p-0";
-    document.getElementById("secondSeasonCol").className = "col-5 p-0";
-    document.getElementById("thirdSeasonCol").className = "col-5 p-0";
+    document.getElementById("firstSeasonCol").className = "col-2 p-0 mt-auto";
+    document.getElementById("secondSeasonCol").className = "col-5 p-0 mt-auto";
+    document.getElementById("thirdSeasonCol").className = "col-5 p-0 mt-auto";
     document.getElementById("fourthSeasonCol").className = "d-none";
     document.getElementById("fifthSeasonCol").className = "d-none";
     document.getElementById("sixthSeasonCol").className = "d-none";
@@ -429,15 +402,15 @@ function installAutumn() {
     document.getElementById("seasonRow").className = "row m-1 mt-0";
 
     /*size of cols*/
-    document.getElementById("firstSeasonCol").className = "col-1 p-0";
-    document.getElementById("secondSeasonCol").className = "col-1 p-0";
-    document.getElementById("fifthSeasonCol").className = "col-1 p-0";
-    document.getElementById("sixthSeasonCol").className = "col-1 p-0";
-    document.getElementById("eighthSeasonCol").className = "col-1 p-0";
-    document.getElementById("ninthSeasonCol").className = "col-1 p-0";
-    document.getElementById("thirdSeasonCol").className = "col-2 p-0";
-    document.getElementById("fourthSeasonCol").className = "col-2 p-0";
-    document.getElementById("seventhSeasonCol").className = "col-2 p-0";
+    document.getElementById("firstSeasonCol").className = "col-1 p-0 mt-auto";
+    document.getElementById("secondSeasonCol").className = "col-1 p-0 mt-auto";
+    document.getElementById("fifthSeasonCol").className = "col-1 p-0 mt-auto";
+    document.getElementById("sixthSeasonCol").className = "col-1 p-0 mt-auto";
+    document.getElementById("eighthSeasonCol").className = "col-1 p-0 mt-auto";
+    document.getElementById("ninthSeasonCol").className = "col-1 p-0 mt-auto";
+    document.getElementById("thirdSeasonCol").className = "col-2 p-0 mt-auto";
+    document.getElementById("fourthSeasonCol").className = "col-2 p-0 mt-auto";
+    document.getElementById("seventhSeasonCol").className = "col-2 p-0 mt-auto";
     document.getElementById("tenthSeasonCol").className = "d-none";
     document.getElementById("eleventhSeasonCol").className = "d-none";
     document.getElementById("twelfthSeasonCol").className = "d-none";
@@ -446,15 +419,18 @@ function installAutumn() {
     const sImages = document.querySelectorAll('.seasonImg');
     sImages.forEach(image => {
         image.src = "img/Jahresz/leaf2.png";
+        image.style.width = '120%';
     });
     /*those with src != leaf2*/
     document.getElementById("firstSeasonImg").src = "img/Jahresz/leaf6.png";
     document.getElementById("secondSeasonImg").src = "img/Jahresz/leaf6.png";
     document.getElementById("sixthSeasonImg").src = "img/Jahresz/leaf4.png";
     document.getElementById("seventhSeasonImg").src = "img/Jahresz/leaf6.png";
-
-    setSizeAutumnImg(this.valueAnzPanels);
-}
+    //individual size settings
+    document.getElementById("secondSeasonImg").style.width = '130%';
+    document.getElementById("thirdSeasonImg").style.width = '110%';
+    document.getElementById("sixthSeasonImg").style.width = '130%';
+    document.getElementById("ninthSeasonImg").style.width = '110%';}
 
 /**
  *  verändert grösse der season images damit panels genügend platz haben und sich nichts überschneidet
@@ -497,17 +473,17 @@ function installWinter() {
     document.getElementById("seasonRow").className = "row m-1 mt-0";
 
     /*size of cols*/
-    document.getElementById("firstSeasonCol").className = "col-1 p-0";
-    document.getElementById("secondSeasonCol").className = "col-2 p-0";
-    document.getElementById("fifthSeasonCol").className = "col-1 p-0";
-    document.getElementById("sixthSeasonCol").className = "col-1 p-0";
-    document.getElementById("eighthSeasonCol").className = "col-1 p-0";
-    document.getElementById("ninthSeasonCol").className = "col-1 p-0";
-    document.getElementById("thirdSeasonCol").className = "col-1 p-0";
-    document.getElementById("fourthSeasonCol").className = "col-1 p-0";
-    document.getElementById("seventhSeasonCol").className = "col-1 p-0";
-    document.getElementById("tenthSeasonCol").className = "col-1 p-0";
-    document.getElementById("eleventhSeasonCol").className = "col-1 p-0";
+    document.getElementById("firstSeasonCol").className = "col-1 p-0 mt-auto";
+    document.getElementById("secondSeasonCol").className = "col-2 p-0 mt-auto";
+    document.getElementById("fifthSeasonCol").className = "col-1 p-0 mt-auto";
+    document.getElementById("sixthSeasonCol").className = "col-1 p-0 mt-auto";
+    document.getElementById("eighthSeasonCol").className = "col-1 p-0 mt-auto";
+    document.getElementById("ninthSeasonCol").className = "col-1 p-0 mt-auto";
+    document.getElementById("thirdSeasonCol").className = "col-1 p-0 mt-auto";
+    document.getElementById("fourthSeasonCol").className = "col-1 p-0 mt-auto";
+    document.getElementById("seventhSeasonCol").className = "col-1 p-0 mt-auto";
+    document.getElementById("tenthSeasonCol").className = "col-1 p-0 mt-auto";
+    document.getElementById("eleventhSeasonCol").className = "col-1 p-0 mt-auto";
     document.getElementById("twelfthSeasonCol").className = "d-none";
 
     const sImages = document.querySelectorAll('.seasonImg');
