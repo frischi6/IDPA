@@ -144,7 +144,8 @@
                 <div class="col-6 col-sm-12" id="wink">
                     <!-- a single setting, on mobile 50% width of settingsSpace, on desk 100% width of settingsSpace-->
                     <h2 class="settingTitle" style="display: inline">Winkel</h2>
-                    <p class="settingHeader" id="winkel"><span class="input p-1 pr-2 pl-2" role="textbox" contenteditable id="valWinkel" onchange="updateRangeWinkel(this.value)">60</span> °</p>
+                    <div class="settingHeader" id="winkel"><span class="input pl-1" role="text" contenteditable
+                                             id="valWinkel" onchange="updateRangeWinkel(this.value)">60</span><span>°</span></div>
                     <div class="range">
                         <input type="range" class="form-range" id="valueWinkel" min="1" max="90" value="60"
                                onchange="updateValueWinkel(this.value)"/>

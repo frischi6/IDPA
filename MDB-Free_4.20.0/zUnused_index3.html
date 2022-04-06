@@ -5,29 +5,14 @@
     <title>Resize Image Proportionally with CSS</title>
 </head>
 <body>
-<h2>Image inside Auto-height Div</h2>
-<div class="box">
-    <img src="img/Wetter/solarpanel.png" alt="Cloudy Sky">
-</div>
-<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-    <label class="btn btn-outline-primary" for="btnradio1">Radio 1</label>
-
-    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-    <label class="btn btn-outline-primary" for="btnradio2">Radio 2</label>
-
-    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-    <label class="btn btn-outline-primary" for="btnradio3">Radio 3</label>
-</div>
-<div class="btn-group">
-    <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" checked />
-    <label class="btn btn-secondary" for="option1">Checked</label>
-
-    <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off" />
-    <label class="btn btn-secondary" for="option2">Radio</label>
-
-    <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off" />
-    <label class="btn btn-secondary" for="option3">Radio</label>
-</div>
+<span class="input test" contenteditable style="border: black solid 1px">100</span>
+<style>
+    .test{
+        display: block;
+        width: 3ch;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+</style>
 </body>
 </html>

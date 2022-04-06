@@ -54,11 +54,17 @@ h2 {
     position: absolute;
     top: -10px;
     font-size: 30px; /* grösse °-zeichen*/
+    max-width: 60px;
+    max-height: 2px;
 }
 
 #valWinkel{
     border: black solid 1px;
     border-radius: 2px;
+    display: inline-block;
+    width: 4ch;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 #valWinkel, #anzPannelsText { /*wert in box*/
