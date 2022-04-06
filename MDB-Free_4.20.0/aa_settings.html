@@ -19,7 +19,6 @@
     <!-- Material Design Bootstrap -->
     <link rel="stylesheet" href="css/mdb.min.css">
     <!-- Your custom styles (optional) -->
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="aa_style.css">
 
 
@@ -145,8 +144,7 @@
                 <div class="col-6 col-sm-12" id="wink">
                     <!-- a single setting, on mobile 50% width of settingsSpace, on desk 100% width of settingsSpace-->
                     <h2 class="settingTitle" style="display: inline">Winkel</h2>
-                    <p class="settingHeader" id="winkel"><input type="text" id="valWinkel" value="60" size="1"
-                                                                onchange="updateRangeWinkel(this.value)">°</p>
+                    <p class="settingHeader" id="winkel"><span class="input p-1 pr-2 pl-2" role="textbox" contenteditable id="valWinkel" onchange="updateRangeWinkel(this.value)">60</span> °</p>
                     <div class="range">
                         <input type="range" class="form-range" id="valueWinkel" min="1" max="90" value="60"
                                onchange="updateValueWinkel(this.value)"/>

@@ -56,6 +56,11 @@ h2 {
     font-size: 30px; /* grösse °-zeichen*/
 }
 
+#valWinkel{
+    border: black solid 1px;
+    border-radius: 2px;
+}
+
 #valWinkel, #anzPannelsText { /*wert in box*/
     font-size: 15px;
 }
