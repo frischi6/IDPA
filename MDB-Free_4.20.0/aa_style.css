@@ -6,6 +6,7 @@ to work with
  */
 
 html {
+    background-color: #F8F8F8;
 }
 
 h2 {
@@ -81,7 +82,7 @@ hr { /*schwarzer abtrennungsstrich*/
 
 
 #visPan {
-    height: 550px;
+    /*height: 550px;*/
     position: relative; /*damit möglich ist panelAndSeason an bottom zu setzen*/
 }
 
@@ -94,7 +95,7 @@ hr { /*schwarzer abtrennungsstrich*/
 }
 
 #seasonRow{ /*damit sich panel nicht ständig verändern in position wenn jahreszeit geändert wird*/
-    height: 110px;
+    height: 80px; /*war 110px vorher habe aber das gefühl 90 reicht aus*/
 }
 
 
@@ -183,10 +184,10 @@ hr { /*schwarzer abtrennungsstrich*/
         height: 100vh;
     }
     #visWinkel{
-        height: 70vh;
+        height: 60vh;
     }
     #leistung{
-        height: 30vh;
+        height: 40vh;
     }
 
 

@@ -18,6 +18,7 @@ window.onresize = setAnzPanels;
  * zusätzlich muss im html dann noch die spezifische Methode aufgerufen werden wie zB setAngel() wenn die Winkeleinstellung verändert wurde
  */
 function settingsAlwaysUsed(){
+    console.log(document.getElementById("firstSeasonCol").style.height);
     setValues();
     calculatePower(this.valueWeather, this.valueSeason, this.valueWinkel, this.valueAnzPanels);
 }
@@ -65,33 +66,83 @@ function setAnzPanels() {
 
         if (value == 1) {
             deleteAllChildsPanelrow();
-            document.getElementById("panelRow").className = "row row-cols-1 m-1 mb-5";
+            document.getElementById("panelRow").className = "row row-cols-1 m-1 mb-0";
+            document.getElementById("visPan").style.height = '330px';
             addPannelsToRow(value);
         } else if (value >= 2 && value <= 6) {
-            console.log("innn");
             deleteAllChildsPanelrow();
-            document.getElementById("panelRow").className = "row row-cols-2 m-1 mb-5 d-flex flex-wrap-reverse";
+            document.getElementById("panelRow").className = "row row-cols-2 m-1 mb-0 d-flex flex-wrap-reverse";
+            /*anpassung height*/
+            if (value <3){
+                document.getElementById("visPan").style.height = '300px';
+            }else if (value < 5){
+                document.getElementById("visPan").style.height = '350px';
+            }else {
+                document.getElementById("visPan").style.height = '380px';
+            }
+
             addPannelsToRow(value);
         } else if (value >= 7 && value <= 15) {
-            console.log("inn2");
             deleteAllChildsPanelrow();
-            document.getElementById("panelRow").className = "row row-cols-3 m-1 mb-5 d-flex flex-wrap-reverse";
+            document.getElementById("panelRow").className = "row row-cols-3 m-1 mb-0 d-flex flex-wrap-reverse";
+            /*anpassung height*/
+            if (value <10){
+                document.getElementById("visPan").style.height = '350px';
+            }else if (value < 13){
+                document.getElementById("visPan").style.height = '380px';
+            }else {
+                document.getElementById("visPan").style.height = '400px';
+            }
+
             addPannelsToRow(value);
         } else if (value >= 16 && value <= 28) {
             deleteAllChildsPanelrow();
-            document.getElementById("panelRow").className = "row row-cols-4 m-1 mb-5 d-flex flex-wrap-reverse";
+            document.getElementById("panelRow").className = "row row-cols-4 m-1 mb-0 d-flex flex-wrap-reverse";
+            /*anpassung height*/
+            if (value <21){
+                document.getElementById("visPan").style.height = '350px';
+            } else {
+                document.getElementById("visPan").style.height = '400px';
+            }
+
             addPannelsToRow(value);
         } else if (value >= 29 && value <= 45) {
             deleteAllChildsPanelrow();
-            document.getElementById("panelRow").className = "row row-cols-5 m-1 mb-5 d-flex flex-wrap-reverse";
+            document.getElementById("panelRow").className = "row row-cols-5 m-1 mb-0 d-flex flex-wrap-reverse";
+            /*anpassung height*/
+            if (value <31){
+                document.getElementById("visPan").style.height = '350px';
+            }else if (value < 36){
+                document.getElementById("visPan").style.height = '380px';
+            }else if (value <41){
+                document.getElementById("visPan").style.height = '400px';
+            }else {
+                document.getElementById("visPan").style.height = '430px';
+            }
+
             addPannelsToRow(value);
-        } else if (value >= 46 && value <= 84) {
+        } else {
             deleteAllChildsPanelrow();
-            document.getElementById("panelRow").className = "row row-cols-6 m-1 mb-5 d-flex flex-wrap-reverse";
-            addPannelsToRow(value);
-        } else {  //restliche Angaben (inkl. werte >100 -> nur 100 panels dargestellt wegen max von range) werden mit mb-3 dargestellt
-            deleteAllChildsPanelrow();
-            document.getElementById("panelRow").className = "row row-cols-6 m-1 mb-1 d-flex flex-wrap-reverse";
+            document.getElementById("panelRow").className = "row row-cols-6 m-1 mb-0 d-flex flex-wrap-reverse";
+            /*anpassung height*/
+            if (value <49){
+                document.getElementById("visPan").style.height = '380px';
+            }else if (value < 55){
+                document.getElementById("visPan").style.height = '400px';
+            }else if (value <61){
+                document.getElementById("visPan").style.height = '430px';
+            }else if(value<73) {
+                document.getElementById("visPan").style.height = '450px';
+            }else if (value<85){
+                document.getElementById("visPan").style.height = '490px';
+            } else if (value<91){
+                document.getElementById("visPan").style.height = '520px';
+            } else if (value < 97){
+                document.getElementById("visPan").style.height = '530px';
+            } else {
+                document.getElementById("visPan").style.height = '550px';
+            }
+
             addPannelsToRow(value);
         }
 
@@ -99,34 +150,42 @@ function setAnzPanels() {
         if (value == 1) {
             deleteAllChildsPanelrow();
             document.getElementById("panelRow").className = "row row-cols-1 m-1 mb-0";
+            document.getElementById("visPan").style.height = '100vh';
             addPannelsToRow(value);
         } else if (value >= 2 && value <= 4) {
             deleteAllChildsPanelrow();
             document.getElementById("panelRow").className = "row row-cols-2 m-1 mb-0 d-flex flex-wrap-reverse";
+            document.getElementById("visPan").style.height = '100vh';
             addPannelsToRow(value);
         } else if (value >= 5 && value <= 9) {
             deleteAllChildsPanelrow();
             document.getElementById("panelRow").className = "row row-cols-3 m-1 mb-3 d-flex flex-wrap-reverse";
+            document.getElementById("visPan").style.height = '100vh';
             addPannelsToRow(value);
         } else if (value >= 10 && value <= 16) {
             deleteAllChildsPanelrow();
             document.getElementById("panelRow").className = "row row-cols-4 m-1 mb-1 d-flex flex-wrap-reverse";
+            document.getElementById("visPan").style.height = '100vh';
             addPannelsToRow(value);
         } else if (value >= 17 && value <= 25) {
             deleteAllChildsPanelrow();
             document.getElementById("panelRow").className = "row row-cols-5 m-1 mb-1 d-flex flex-wrap-reverse";
+            document.getElementById("visPan").style.height = '100vh';
             addPannelsToRow(value);
         } else if (value >= 26 && value <= 36) {
             deleteAllChildsPanelrow();
             document.getElementById("panelRow").className = "row row-cols-6 m-1 mb-1 d-flex flex-wrap-reverse";
+            document.getElementById("visPan").style.height = '100vh';
             addPannelsToRow(value);
         } else if (value >= 37 && value <= 42) {    //season img werden in diesem teil kleiner
             deleteAllChildsPanelrow();
             document.getElementById("panelRow").className = "row row-cols-6 m-1 mb-0 d-flex flex-wrap-reverse";
+            document.getElementById("visPan").style.height = '100vh';
             addPannelsToRow(value);
         } else {  //season img werden wieder grösser
             deleteAllChildsPanelrow();
             document.getElementById("panelRow").className = "row row-cols-8 m-2 mb-4 d-flex flex-wrap-reverse";
+            document.getElementById("visPan").style.height = '100vh';
             addPannelsToRow7Higher(value);
         }
     }
@@ -380,7 +439,7 @@ function installSummer() {
     document.getElementById("twelfthSeasonCol").className = "d-none";
 
     document.getElementById("firstSeasonImg").src = "img/Jahresz/sandburg.png";
-    document.getElementById("firstSeasonImg").style.width = '90%';
+    document.getElementById("firstSeasonImg").style.width = '100%'; //war 90
     document.getElementById("secondSeasonImg").src = "img/Jahresz/wellen.png";
     document.getElementById("secondSeasonImg").style.width = '100%';
     document.getElementById("thirdSeasonImg").src = "img/Jahresz/wellen.png";
@@ -492,7 +551,7 @@ function installWinter() {
         image.style.width = '120%';
     });
     document.getElementById("secondSeasonImg").src = "img/Jahresz/snowman.png";
-    document.getElementById("secondSeasonImg").style.width = '90%';
+    document.getElementById("secondSeasonImg").style.width = '100%'; //war 90 vorher
     document.getElementById("thirdSeasonImg").style.width = '150%';
     document.getElementById("fourthSeasonImg").style.width = '90%';
     document.getElementById("sixthSeasonImg").style.width = '150%';
