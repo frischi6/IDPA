@@ -59,17 +59,15 @@ h2 {
     max-height: 2px;
 }
 
-#valWinkel{
+
+#valWinkel, #anzPannelsText { /*wert in box*/
+    font-size: 15px;
     border: black solid 1px;
     border-radius: 2px;
     display: inline-block;
     width: 4ch;
     overflow: hidden;
     white-space: nowrap;
-}
-
-#valWinkel, #anzPannelsText { /*wert in box*/
-    font-size: 15px;
 }
 
 hr { /*schwarzer abtrennungsstrich*/
