@@ -70,6 +70,10 @@ h2 {
     white-space: nowrap;
 }
 
+#anzPannelsText {
+    width: 6ch;
+}
+
 hr { /*schwarzer abtrennungsstrich*/
     height: 1px;
     background-color: black;
