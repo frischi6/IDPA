@@ -83,6 +83,7 @@ hr { /*schwarzer abtrennungsstrich*/
 
 #visPan {
     /*height: 550px;*/
+    height: 330px;
     position: relative; /*damit möglich ist panelAndSeason an bottom zu setzen*/
 }
 

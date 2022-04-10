@@ -146,6 +146,8 @@
                     <h2 class="settingTitle" style="display: inline">Winkel</h2>
                     <p class="settingHeader mr-2" id="winkel"><input type="text" id="valWinkel" value="60" size="1"
                                                                 onchange="updateRangeWinkel(this.value)">°</p>
+
+
                     <div class="range">
                         <input type="range" class="form-range" id="valueWinkel" min="1" max="90" value="60"
                                onchange="updateValueWinkel(this.value)"/>
@@ -183,8 +185,9 @@
 
                 <div class="col-6 col-sm-12" id="anz">
                     <h2 class="settingTitle" style="display: inline">Anz. Panels</h2>
-                    <input type="text" class="settingHeader mr-2" id="anzPannelsText" value="1" size="1"
-                           onchange="updateRangeAnzPanels(this.value)">
+                    <p class="settingHeader mr-2"><input type="text" id="anzPannelsText" value="1" size="1"
+                                                         onchange="updateRangeAnzPanels(this.value)"></p>
+
 
                     <div class="range" id="range">
                         <input type="range" class="form-range" id="valAnzPanels" min="1" max="100" value="1"
@@ -231,7 +234,7 @@
             <!--visualSpace, used to get 3/4 of the window for the box, in this box are all visual elements -->
             <div class="row row-cols-2" id="visualsBox">
                 <!--box with pannels, winkel and in mobile also leistung inside, is placed inside visualSpace as parent, width of visualSpace = 100% width visualBox -->
-                <div class="col-12 col-sm-9 " id="visPan" style="height: 400px;"> <!--550px height f. 100 panels-->
+                <div class="col-12 col-sm-9 " id="visPan"> <!--550px height f. 100 panels-->
                     <!-- place where the pannels and weather is dargestellt-->
                     <div class="row row-cols-4" id="weatherRow">
                         <div class="col p-0" id="firstWeatherCol"><img src="img/Wetter/sun2.png" class="weatherImg" id="firstWeatherImg" style="width: 100%"/></div  >

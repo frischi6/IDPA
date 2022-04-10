@@ -11,7 +11,9 @@ var valueAnzPanels;
  * bei Veränderung der Bildschirmgrösse werden die Panels angepasst, damit sie sich responsive verhalten und sich
  *  nicht mit anderen Elementen überschneiden
  */
-window.onresize = setAnzPanels;
+window.addEventListener('resize', function(){
+    setAnzPanels();
+});
 
 /**
  * Diese Methode wird nach jeder Änderung vom User der Einstellungen aufgerufen
