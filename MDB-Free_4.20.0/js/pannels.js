@@ -9,11 +9,19 @@ var valueAnzPanels;
 
 /**
  * bei Veränderung der Bildschirmgrösse werden die Panels angepasst, damit sie sich responsive verhalten und sich
- *  nicht mit anderen Elementen überschneiden
+ *      nicht mit anderen Elementen überschneiden
+ * Der Timer ist dazu da, dass nicht mit jeder kleinsten Bewegung/Grössenveränderung setAnzPanels() aufgerufen wird (würde
+ *      sonst zu grossem Rechenaufwand führen)
+ *  https://www.creativejuiz.fr/blog/en/tutorials/more-performant-onresize-onscroll-javascript
  */
+var timer;
 window.addEventListener('resize', function(){
-    setAnzPanels();
+    clearTimeout(timer);
+    timer = setTimeout(function(){
+        setAnzPanels();
+    }, 75);
 });
+
 
 /**
  * Diese Methode wird nach jeder Änderung vom User der Einstellungen aufgerufen
