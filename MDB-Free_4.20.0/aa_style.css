@@ -65,14 +65,11 @@ h2 {
     border: black solid 1px;
     border-radius: 2px;
     display: inline-block;
-    width: 4ch;
+    width: 5ch;
     overflow: hidden;
     white-space: nowrap;
 }
 
-#anzPannelsText {
-    width: 6ch;
-}
 
 hr { /*schwarzer abtrennungsstrich*/
     height: 1px;
