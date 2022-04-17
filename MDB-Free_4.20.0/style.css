@@ -1,8 +1,8 @@
-/*
-best css-version
-stylesheet zu aa_settings.html
-to work with
-35
+/**
+CSS-File for IDPA-Project 2022 "Solarzellenrechner" by Yannis Lee, Malo Jaboulet, Sarah Frischknecht
+Version: 2.4
+Final version: 17.04.2022
+Author: Sarah Frischknecht
  */
 
 html {
@@ -23,8 +23,7 @@ h2 {
 .btnWeather {
     height: 29px;
     width: 29px;
-    margin: 0px;
-    margin-bottom: 5px;
+    margin: 0 0 5px 0;
 }
 
 .btnSeason {
@@ -34,17 +33,16 @@ h2 {
 }
 
 .settingHeader {
-    display: inline;
-    /*font-size: 66px; glaub ich nicht mehr gebraucht*/
     position: absolute;
     right: 3%;
     top: 4px;
 }
 
-.form-range { /*range slider*/
+/*range slider*/
+.form-range {
     width: 100%;
     margin-top: 10%;
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 #wink, #anz {
@@ -54,13 +52,13 @@ h2 {
 #winkel {
     position: absolute;
     top: -10px;
-    font-size: 30px; /* grösse °-zeichen*/
+    font-size: 30px; /* size °-character*/
     max-width: 60px;
     max-height: 2px;
 }
 
-
-#valWinkel, #anzPannelsText { /*wert in box*/
+/*value in input field*/
+#valWinkel, #anzPanelsText {
     font-size: 15px;
     border: black solid 1px;
     border-radius: 2px;
@@ -70,8 +68,8 @@ h2 {
     white-space: nowrap;
 }
 
-
-hr { /*schwarzer abtrennungsstrich*/
+/*black separation line*/
+hr {
     height: 1px;
     background-color: black;
     padding: 0;
@@ -81,34 +79,32 @@ hr { /*schwarzer abtrennungsstrich*/
 
 
 #visPan {
-    /*height: 550px;*/
     height: 330px;
-    position: relative; /*damit möglich ist panelAndSeason an bottom zu setzen*/
+    position: relative;
 }
-
 #panelAndSeason {
     /*on bottom of visPan*/
     position: absolute;
-    bottom: 0px;
+    bottom: 0;
     left: 2px;
     right: 2px;
 }
 
-#seasonRow{ /*damit sich panel nicht ständig verändern in position wenn jahreszeit geändert wird*/
-    height: 80px; /*war 110px vorher habe aber das gefühl 90 reicht aus*/
+#seasonRow{
+    height: 80px;
 }
 
-
-#winkelLeistung{
+#winkelEnergy{
     border-top: 1px grey solid;
 }
-#visWinkel, #leistung{
+#visAngel, #energy{
     height: 15vh;
 }
-#visWinkel{
+#visAngel{
     position: relative;
 }
 #lineBase, #lineAngel{
+    /*to get a movable black line*/
     background-color: black;
     height: 1px;
     border: solid black 1px;
@@ -122,13 +118,13 @@ hr { /*schwarzer abtrennungsstrich*/
 }
 #lineAngel{
     width: 7vh;
-    transform-origin:0% 0%;
+    transform-origin:0 0;
 }
 
-/*damit winkel und leistung bei kleiner bildschirmhöhe genügend platz hat weil height ursprünglich mit 15vh angegeben*/
+/*that angel and energy per day have enough space bc originally they would get 15vh which would not be enough in small display height*/
 @media (max-height: 505px) {
 
-    #visWinkel, #leistung{
+    #visAngel, #energy{
         height: 76px;
     }
 
@@ -140,7 +136,7 @@ hr { /*schwarzer abtrennungsstrich*/
     }
 }
 
-/*Mobile M (wenn F12 dann responsive)*/
+/*Mobile M (get to mobile M if press F12 and then go to responsive)*/
 @media (min-width: 375px) {
 
     .btnWeather, .btnSeason {
@@ -149,17 +145,10 @@ hr { /*schwarzer abtrennungsstrich*/
     }
 }
 
-/*sm - handy quer*/
+/*Bootstrap size sm - mobile phone crosswise*/
 @media (min-width: 576px) {
-    /*damit wetter icons grösser wird wahrsch aber nicht mehr gebraucht*/
-    img{
-        width: 110%;
-        padding-left: 0;
-        margin-left: 0;
-
-    }
     #settingsSpace {
-        height: 100vh; /* ganze bildschirmhöhe*/
+        height: 100vh;
         border-left: #707070 solid 1px;
     }
     .btnWeather, .btnSeason{
@@ -167,7 +156,7 @@ hr { /*schwarzer abtrennungsstrich*/
         height: 25px;
     }
 
-    #seasonRow{ /*damit sich panel nicht ständig verändern in position wenn jahreszeit geändert wird*/
+    #seasonRow{
         height: 25vh;
     }
 
@@ -176,17 +165,17 @@ hr { /*schwarzer abtrennungsstrich*/
     }
 
 
-    #winkelLeistung{
+    #winkelEnergy{
         border-top: none;
         border-left: 1px grey solid;
     }
     #visPan {
         height: 100vh;
     }
-    #visWinkel{
+    #visAngel{
         height: 60vh;
     }
-    #leistung{
+    #energy{
         height: 40vh;
     }
 
@@ -226,7 +215,8 @@ hr { /*schwarzer abtrennungsstrich*/
 
 }
 
-/*md*/
+
+/*Bootstrap size md*/
 @media (min-width: 768px) {
     .btnWeather, .btnSeason{
         width: 37px;
@@ -241,7 +231,7 @@ hr { /*schwarzer abtrennungsstrich*/
 
 }
 
-/*lg*/
+/*Bootstrap size lg*/
 @media (min-width: 992px) {
     .btnWeather, .btnSeason{
         width: 42px;
@@ -255,29 +245,9 @@ hr { /*schwarzer abtrennungsstrich*/
     }
 }
 
-/*xl*/
+/*Bootstrap size xl*/
 @media (min-width: 1200px) {
     img {
         width: 100%;
     }
 }
-
-
-/*indexDesk.html
-useless??
-md
-@media (min-width: 768px) {
-
-    .padding {
-        position: fixed;
-        top: 0;
-        right: 0;
-    }
-
-    .container {
-        position: fixed;
-        top: 0;
-        right: 0px;
-        background-color: red;
-    }
-}*/

@@ -1,0 +1,386 @@
+<!--
+HTML-File for IDPA-Project 2022 "Solarzellenrechner" by Yannis Lee, Malo Jaboulet, Sarah Frischknecht
+Version: 2.9
+Final Version: 17.04.2022
+Author: Sarah Frischknecht
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Solarrechner</title>
+
+    <!-- Needed that Bootstrap works -->
+    <!-- MDB icon -->
+    <link rel="icon" href="img/Weather/solarpanel.png" type="image/x-icon">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="css/mdb.min.css">
+
+    <!-- Personal stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Start of project -->
+<div class="container-fluid padding">
+    <div class="row row-cols-1" id="spaces"> <!-- full window, includes settings & visual-->
+        <div class="col-12 col-sm-3" id="settingsSpace">
+            <!-- settingSpace, used to get 1/4 of the window for the box, in this box are all settings-->
+            <div class="row row-cols-1" id="settingsBox">
+                <!--box with every single setting inside, is placed inside settingsSpace as parent, width of settingsSpace = 100% width settingsBox-->
+                <div class="col-6 col-sm-12 " id="wet">
+                    <!-- a single setting, on mobile 50% width of settingsSpace, on deskt 100% width of settingsSpace-->
+                    <h2 id="wetter">Wetter</h2>
+                    <span title="sonnig"><!-- span = hover-effect-->
+                    <button type="button" class="btn btn-grey waves-effect px-1 px-sm-1 p-0 btnWeather"
+                            id="btnSun" value="1"
+                            onclick="selectedButtonWeather(this.id)"><img src="img/Weather/sun.png " alt="sonnig"
+                                                                          width="100%"/></button>
+                    </span>
+                    <span title="leicht bewölkt">
+                        <button type="button" class="btn btn-outline-dark waves-effect px-1 px-sm-1 p-0 btnWeather"
+                                id="btnCloudySun"
+                                onclick="selectedButtonWeather(this.id)"><img src="img/Weather/cloudySun.png"
+                                                                              alt="leicht bewölkt" width="100%"/>
+                    </button>
+                    </span>
+                    <span title="stark bewölkt">
+                    <button type="button" class="btn btn-outline-dark waves-effect px-1 px-sm-1 p-0 btnWeather"
+                            id="btnStorm"
+                            onclick="selectedButtonWeather(this.id)"><img src="img/Weather/storm_dark.png"
+                                                                          alt="stark bewölkt" width="100%"/>
+                    </button>
+                    </span>
+                    <span title="schneiend">
+                        <button type="button" class="btn btn-outline-dark waves-effect px-1 px-sm-1 p-0 btnWeather"
+                                id="btnSnow"
+                                onclick="selectedButtonWeather(this.id)"><img src="img/Weather/snow.png" alt="schneiend"
+                                                                              width="100%"/></button>
+                    </span>
+                    <script>
+                        /**
+                         * sets selected weather in the form of a value (number 1 to 4) saved in btnSun.value
+                         * Organizes the correct design of the buttons
+                         * @param id name of the weather to identify
+                         */
+                        function selectedButtonWeather(id) {
+                            //set correct value to later evaluate in js
+                            if (document.getElementById(id).id === "btnSun") {
+                                document.getElementById("btnSun").value = 1;
+                            } else if (document.getElementById(id).id === "btnCloudySun") {
+                                document.getElementById("btnSun").value = 2;
+                            } else if (document.getElementById(id).id === "btnStorm") {
+                                document.getElementById("btnSun").value = 3;
+                            } else {
+                                document.getElementById("btnSun").value = 4;
+                            }
+
+                            //set all buttons back to outline-dark
+                            document.getElementById("btnSun").className = "btn btn-outline-dark waves-effect px-1 px-sm-1 p-0 btnWeather";
+                            document.getElementById("btnCloudySun").className = "btn btn-outline-dark waves-effect px-1 px-sm-1 p-0 btnWeather";
+                            document.getElementById("btnStorm").className = "btn btn-outline-dark waves-effect px-1 px-sm-1 p-0 btnWeather";
+                            document.getElementById("btnSnow").className = "btn btn-outline-dark waves-effect px-1 px-sm-1 p-0 btnWeather";
+
+                            //change selected button to outline-success
+                            document.getElementById(id).className = "btn btn-grey waves-effect px-1 px-sm-1 p-0 btnWeather";
+
+                            //let changes be displayed in visual part
+                            settingsAlwaysUsed();
+                            setCorrectWeather();
+                        }
+                    </script>
+                </div>
+
+                <div class="col-6 col-sm-12" id="jahresz">
+                    <h2>Jahreszeit</h2>
+                    <span title="Frühling">
+                        <button type="button" class="btn btn-grey waves-effect px-1 px-sm-1 p-0 btnSeason"
+                                id="btnSpring" onclick="selectedButtonSeason(this.id)" value="1">
+                                <img src="img/Season/spring.png" alt="Frühling" width="100%"/>
+                        </button>
+                    </span>
+                    <span title="Sommer">
+                        <button type="button" class="btn btn-outline-dark waves-effect px-1 px-sm-1 p-0 btnSeason"
+                                id="btnSummer" onclick="selectedButtonSeason(this.id)">
+                                <img src="img/Season/summer.png" alt="Sommer" width="100%"/>
+                        </button>
+                    </span>
+                    <span title="Herbst">
+                        <button type="button" class="btn btn-outline-dark waves-effect px-1 px-sm-1 p-0 btnSeason"
+                                id="btnAutumn" onclick="selectedButtonSeason(this.id)">
+                                <img src="img/Season/autumn.png" alt="Herbst" width="100%"/>
+                        </button>
+                    </span>
+                    <span title="Winter">
+                        <button type="button" class="btn btn-outline-dark waves-effect px-1 px-sm-1 p-0 btnSeason"
+                                id="btnWinter" onclick="selectedButtonSeason(this.id)">
+                                <img src="img/Season/winter.png" alt="Winter" width="100%"/>
+                        </button>
+                    </span>
+                    <script>
+                        /**
+                         * sets selected season in the form of a value (number 1 to 4) saved in btnSpring.value
+                         * Organizes the correct design of the buttons
+                         * @param id name of the season to identify
+                         */
+                        function selectedButtonSeason(id) {
+                            //set correct value to evaluate in js
+                            if (document.getElementById(id).id === "btnSpring") {
+                                document.getElementById("btnSpring").value = 1;
+                            } else if (document.getElementById(id).id === "btnSummer") {
+                                document.getElementById("btnSpring").value = 2;
+                            } else if (document.getElementById(id).id === "btnAutumn") {
+                                document.getElementById("btnSpring").value = 3;
+                            } else {
+                                document.getElementById("btnSpring").value = 4;
+                            }
+
+                            //set all buttons back to outline-dark
+                            document.getElementById("btnSpring").className = "btn btn-outline-dark waves-effect px-1 px-sm-1 p-0 btnSeason";
+                            document.getElementById("btnSummer").className = "btn btn-outline-dark waves-effect px-1 px-sm-1 p-0 btnSeason";
+                            document.getElementById("btnAutumn").className = "btn btn-outline-dark waves-effect px-1 px-sm-1 p-0 btnSeason";
+                            document.getElementById("btnWinter").className = "btn btn-outline-dark waves-effect px-1 px-sm-1 p-0 btnSeason";
+
+                            //change selected button to outline-success
+                            document.getElementById(id).className = "btn btn-grey waves-effect px-1 px-sm-1 p-0 btnSeason";
+
+                            //let changes be displayed in visual part
+                            settingsAlwaysUsed();
+                            setCorrectSeason();
+                        }
+                    </script>
+                </div>
+
+                <div class="col-6 col-sm-12" id="wink">
+                    <h2 class="settingTitle" style="display: inline">Winkel</h2>
+                    <p class="settingHeader mr-2 mr-sm-1" id="winkel"><input type="text" id="valWinkel" value="60"
+                                                                             size="1"
+                                                                             onchange="updateRangeWinkel(this.value)">°
+                    </p>
+
+                    <div class="range">
+                        <input type="range" class="form-range" id="valueWinkel" min="1" max="90" value="60"
+                               onchange="updateValueWinkel(this.value)"/>
+                    </div>
+                    <script>
+                        /**
+                         * adjusts input field after change on range slider
+                         * @param val new value of the angel
+                         */
+                        function updateValueWinkel(val) {
+                            document.getElementById('valWinkel').value = val;
+                            settingsAlwaysUsed();
+                            setAngel();
+                        }
+
+                        /**
+                         * adjusts range slider after change in input field incl. handling of incorrect input
+                         * @param val new value of the angel
+                         */
+                        function updateRangeWinkel(val) {
+                            var valueW = val;
+                            if (val > 90) {
+                                document.getElementById('valWinkel').value = 90;
+                                valueW = 90;
+                            }
+                            if (val < 1) {
+                                document.getElementById('valWinkel').value = 1;
+                                valueW = 1;
+                            }
+                            if (isNaN(val)) {
+                                document.getElementById('valWinkel').value = 60;
+                                valueW = 60;
+                            }
+
+                            document.getElementById('valueWinkel').value = valueW;
+                            settingsAlwaysUsed();
+                            setAngel();
+                        }
+                    </script>
+
+
+                </div>
+
+                <div class="col-6 col-sm-12" id="anz">
+                    <h2 class="settingTitle" style="display: inline">Anz. Panels</h2>
+                    <p class="settingHeader mr-2 mr-sm-1 mr-md-3"><input type="text" id="anzPanelsText" value="1"
+                                                                         size="1"
+                                                                         onchange="updateRangeAnzPanels(this.value)">
+                    </p>
+
+
+                    <div class="range" id="range">
+                        <input type="range" class="form-range" id="valAnzPanels" min="1" max="100" value="1"
+                               onchange="updateValueAnzPanels(this.value)"/>
+                    </div>
+                    <script>
+                        /**
+                         * adjusts input field after change on range slider
+                         * @param val new value of the number of panels
+                         */
+                        function updateValueAnzPanels(val) {
+                            document.getElementById('anzPanelsText').value = val;
+                            document.getElementById("gesamtflaeche").innerHTML = "Gesamtfläche: " + (1.7 * val).toFixed(0) + " m&sup2";
+
+                            settingsAlwaysUsed();
+                            setAnzPanels();
+                        }
+
+                        /**
+                         * adjusts range slider after change in input field incl. handling of incorrect input
+                         * @param val new value of the number of panels
+                         */
+                        function updateRangeAnzPanels(val) {
+                            if (val > 100) {
+                                document.getElementById('anzPanelsText').value = 100;
+                            }
+                            if (val < 1 || isNaN(val)) {
+                                document.getElementById('anzPanelsText').value = 1;
+                                val = 1;
+                            }
+                            document.getElementById('valAnzPanels').value = val;
+                            document.getElementById("gesamtflaeche").innerHTML = "Gesamtfläche: " + (1.7 * val).toFixed(0) + " m&sup2";
+
+                            settingsAlwaysUsed();
+                            setAnzPanels();
+                        }
+                    </script>
+
+                </div>
+                <div class="col-12 p-0 pt-sm-4 text-center" id="m2">
+                    <!--textfield where total of panels in m2 will be printed-->
+                    <p class="m-1 p-1 pl-2" id="gesamtflaeche">Gesamtfläche: 2 m&sup2;</p>
+                </div>
+
+                <!-- in mobile a full width line that separates the setting space from the visual space, in deskt non-existent-->
+                <hr class="d-sm-none">
+
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-9 order-sm-first" id="visualSpace" style="background-color: #F8F8F8;">
+            <!--visualSpace, used to get 3/4 of the window for the box, in this box are all visual elements -->
+            <div class="row row-cols-2" id="visualsBox">
+                <!--box with panels, angel and energy per day inside, is placed inside visualSpace as parent-->
+                <div class="col-12 col-sm-9 " id="visPan">
+                    <!-- place where the panels, weather and season are displayed-->
+                    <div class="row row-cols-4" id="weatherRow">
+                        <div class="col p-0" id="firstWeatherCol"><img src="img/Weather/sun2.png" alt="Sonne" class="weatherImg"
+                                                                       id="firstWeatherImg" style="width: 100%"/></div>
+                        <div class="d-none" id="secondWeatherCol"><img src="img/Weather/sun2.png" class="weatherImg"
+                                                                       id="secondWeatherImg" style="width: 80%"/></div>
+                        <div class="d-none" id="thirdWeatherCol"><img src="img/Weather/sun2.png" class="weatherImg"
+                                                                      id="thirdWeatherImg" style="width: 100%"/></div>
+                        <div class="d-none" id="fourthWeatherCol"><img src="img/Weather/sun2.png" class="weatherImg"
+                                                                       id="fourthWeatherImg" style="width: 100%"/></div>
+                        <div class="d-none" id="fifthWeatherCol"><img src="img/Weather/sun2.png" class="weatherImg"
+                                                                      id="fifthWeatherImg" style="width: 100%"/></div>
+                    </div>
+                    <div id="panelAndSeason">
+                        <!-- includes panelRow and seasonRow, used that one panel is more on the bottom than on the top straight after the sun-->
+                        <div class="row row-cols-1 m-1 mb-0 mb-sm-0" id="panelRow">
+                            <!-- place where the panels are displayed-->
+                            <div class="col p-0 align-items-center"><img src="img/Weather/solarpanel.png" alt="Solarpanel"
+                                                                         style="width: 100%;"/></div>
+                        </div>
+                        <div class="row m-1 mt-0" id="seasonRow">
+                            <div class="col-1 p-0 mt-auto" id="firstSeasonCol"><img src="img/Season/flower1.png" alt="Blume"
+                                                                                    class="seasonImg"
+                                                                                    id="firstSeasonImg"
+                                                                                    style="width: 100%"/></div>
+                            <div class="col-1 p-0 mt-auto" id="secondSeasonCol"><img src="img/Season/flower1.png" alt="Blume"
+                                                                                     class="seasonImg"
+                                                                                     id="secondSeasonImg"
+                                                                                     style="width: 100%"/></div>
+                            <div class="col-1 p-0 mt-auto" id="thirdSeasonCol"><img src="img/Season/flower1.png" alt="Blume"
+                                                                                    class="seasonImg"
+                                                                                    id="thirdSeasonImg"
+                                                                                    style="width: 100%"/></div>
+                            <div class="col-1 p-0 mt-auto" id="fourthSeasonCol"><img src="img/Season/flower1.png" alt="Blume"
+                                                                                     class="seasonImg"
+                                                                                     id="fourthSeasonImg"
+                                                                                     style="width: 100%"/></div>
+                            <div class="col-1 p-0 mt-auto" id="fifthSeasonCol"><img src="img/Season/flower1.png" alt="Blume"
+                                                                                    class="seasonImg"
+                                                                                    id="fifthSeasonImg"
+                                                                                    style="width: 100%"/></div>
+                            <div class="col-1 p-0 mt-auto" id="sixthSeasonCol"><img src="img/Season/flower1.png" alt="Blume"
+                                                                                    class="seasonImg"
+                                                                                    id="sixthSeasonImg"
+                                                                                    style="width: 100%"/></div>
+                            <div class="col-1 p-0 mt-auto" id="seventhSeasonCol"><img src="img/Season/flower1.png" alt="Blume"
+                                                                                      class="seasonImg"
+                                                                                      id="seventhSeasonImg"
+                                                                                      style="width: 100%"/></div>
+                            <div class="col-1 p-0 mt-auto" id="eighthSeasonCol"><img src="img/Season/flower1.png" alt="Blume"
+                                                                                     class="seasonImg"
+                                                                                     id="eighthSeasonImg"
+                                                                                     style="width: 100%"/></div>
+                            <div class="col-1 p-0 mt-auto" id="ninthSeasonCol"><img src="img/Season/flower1.png" alt="Blume"
+                                                                                    class="seasonImg"
+                                                                                    id="ninthSeasonImg"
+                                                                                    style="width: 100%"/></div>
+                            <div class="col-1 p-0 mt-auto" id="tenthSeasonCol"><img src="img/Season/flower1.png" alt="Blume"
+                                                                                    class="seasonImg"
+                                                                                    id="tenthSeasonImg"
+                                                                                    style="width: 100%"/></div>
+                            <div class="col-1 p-0 mt-auto" id="eleventhSeasonCol"><img src="img/Season/flower1.png" alt="Blume"
+                                                                                       class="seasonImg"
+                                                                                       id="eleventhSeasonImg"
+                                                                                       style="width: 100%"/></div>
+                            <div class="col-1 p-0 mt-auto" id="twelfthSeasonCol"><img src="img/Season/flower1.png" alt="Blume"
+                                                                                      class="seasonImg"
+                                                                                      id="twelfthSeasonImg"
+                                                                                      style="width: 100%"/></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-12 col-sm-3" id="winkelEnergy">
+                    <!--includes angel and energy per day-->
+                    <div class="row">
+                        <div class="col-5 col-sm-12 pl-2" id="visAngel">
+                            <h2>Seitenansicht</h2>
+                            <div id="lineAngel" style="transform: rotate(-60deg);"></div>
+                            <div id="lineBase"></div>
+                        </div>
+                        <div class="col-7 col-sm-12 pl-2 position-relative" id="energy">
+                            <h2>Energie pro Tag</h2>
+                            <p id="power" style="font-size: 25px; margin: 0">2.29 kWh</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+<!-- End of project -->
+
+<script src="settings.js"></script>
+
+<!-- Needed that Bootstrap works -->
+<!-- jQuery -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.min.js"></script>
+<!-- Your custom scripts (optional) -->
+<script type="text/javascript"></script>
+
+</body>
+</html>
